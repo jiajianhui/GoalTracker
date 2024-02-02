@@ -8,17 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */; };
-		62CD6B592B6CA5CE00A2CBC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B582B6CA5CE00A2CBC2 /* ContentView.swift */; };
 		62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */; };
 		62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */; };
+		62CD6B652B6CA62600A2CBC2 /* GoalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B642B6CA62600A2CBC2 /* GoalRowView.swift */; };
+		62CD6B672B6CA70C00A2CBC2 /* ColorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B662B6CA70C00A2CBC2 /* ColorOptions.swift */; };
+		62CD6B692B6CA73E00A2CBC2 /* GoalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B682B6CA73E00A2CBC2 /* GoalListView.swift */; };
+		62CD6B6C2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B6B2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift */; };
+		62CD6B6E2B6CB50700A2CBC2 /* AddAndEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B6D2B6CB50700A2CBC2 /* AddAndEditViewModel.swift */; };
+		62CD6B702B6CB57D00A2CBC2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B6F2B6CB57D00A2CBC2 /* CoreDataManager.swift */; };
+		62CD6B722B6CB5CB00A2CBC2 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B712B6CB5CB00A2CBC2 /* GoalModel.swift */; };
+		62CD6B772B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B752B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld */; };
+		62CD6B7A2B6CE6EC00A2CBC2 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
-		62CD6B582B6CA5CE00A2CBC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		62CD6B642B6CA62600A2CBC2 /* GoalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRowView.swift; sourceTree = "<group>"; };
+		62CD6B662B6CA70C00A2CBC2 /* ColorOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOptions.swift; sourceTree = "<group>"; };
+		62CD6B682B6CA73E00A2CBC2 /* GoalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalListView.swift; sourceTree = "<group>"; };
+		62CD6B6B2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndEditGoalView.swift; sourceTree = "<group>"; };
+		62CD6B6D2B6CB50700A2CBC2 /* AddAndEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndEditViewModel.swift; sourceTree = "<group>"; };
+		62CD6B6F2B6CB57D00A2CBC2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		62CD6B712B6CB5CB00A2CBC2 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
+		62CD6B762B6CB68C00A2CBC2 /* GoalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoalModel.xcdatamodel; sourceTree = "<group>"; };
+		62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */,
-				62CD6B582B6CA5CE00A2CBC2 /* ContentView.swift */,
+				62CD6B742B6CB61500A2CBC2 /* ViewModels */,
+				62CD6B732B6CB5F500A2CBC2 /* Models */,
+				62CD6B6A2B6CB3C800A2CBC2 /* Views */,
+				62CD6B662B6CA70C00A2CBC2 /* ColorOptions.swift */,
+				62CD6B782B6CE66500A2CBC2 /* Components */,
 				62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */,
 				62CD6B5C2B6CA5CF00A2CBC2 /* Preview Content */,
 			);
@@ -65,6 +85,42 @@
 				62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		62CD6B6A2B6CB3C800A2CBC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B682B6CA73E00A2CBC2 /* GoalListView.swift */,
+				62CD6B642B6CA62600A2CBC2 /* GoalRowView.swift */,
+				62CD6B6B2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62CD6B732B6CB5F500A2CBC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B6F2B6CB57D00A2CBC2 /* CoreDataManager.swift */,
+				62CD6B712B6CB5CB00A2CBC2 /* GoalModel.swift */,
+				62CD6B752B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		62CD6B742B6CB61500A2CBC2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B6D2B6CB50700A2CBC2 /* AddAndEditViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		62CD6B782B6CE66500A2CBC2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62CD6B592B6CA5CE00A2CBC2 /* ContentView.swift in Sources */,
+				62CD6B772B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld in Sources */,
+				62CD6B672B6CA70C00A2CBC2 /* ColorOptions.swift in Sources */,
+				62CD6B6C2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift in Sources */,
+				62CD6B692B6CA73E00A2CBC2 /* GoalListView.swift in Sources */,
+				62CD6B6E2B6CB50700A2CBC2 /* AddAndEditViewModel.swift in Sources */,
+				62CD6B722B6CB5CB00A2CBC2 /* GoalModel.swift in Sources */,
 				62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */,
+				62CD6B702B6CB57D00A2CBC2 /* CoreDataManager.swift in Sources */,
+				62CD6B7A2B6CE6EC00A2CBC2 /* LineView.swift in Sources */,
+				62CD6B652B6CA62600A2CBC2 /* GoalRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +408,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		62CD6B752B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				62CD6B762B6CB68C00A2CBC2 /* GoalModel.xcdatamodel */,
+			);
+			currentVersion = 62CD6B762B6CB68C00A2CBC2 /* GoalModel.xcdatamodel */;
+			path = GoalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 62CD6B4B2B6CA5CD00A2CBC2 /* Project object */;
 }

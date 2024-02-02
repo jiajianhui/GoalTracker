@@ -11,7 +11,8 @@ import SwiftUI
 struct GoalTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GoalListView()
+                .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
         }
     }
 }
