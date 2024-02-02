@@ -26,6 +26,13 @@ class GoalModel: NSManagedObject, Identifiable {
     static func empty(context: NSManagedObjectContext = CoreDataManager.shared.newContext) -> GoalModel {
         GoalModel(context: context)
     }
+    
+    //验证输入是否合法
+    var isVaild: Bool {
+        //trimmingCharacters去除字符串开头和结尾的空格和换行符
+        !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
 }
 
 extension GoalModel {

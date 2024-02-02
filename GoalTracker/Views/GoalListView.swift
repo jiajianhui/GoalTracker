@@ -45,6 +45,7 @@ struct GoalListView: View {
         }
         .overlay(alignment: .bottomTrailing) {
             Button {
+                UIImpactFeedbackGenerator.impact(style: .light)
                 selectedGoal = GoalModel.empty()
             } label: {
                 Circle()

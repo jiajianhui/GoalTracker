@@ -15,10 +15,12 @@ struct AddAndEditGoalView: View {
     
     @State var showDeleteSheet = false
     
+    @State var validAlert = false
+    
     var body: some View {
         VStack {
             VStack {
-                TextField("请输入任务名称", text: $vm.goal.title, axis: .vertical)
+                TextField(PlaceholderOptions.all.randomElement()!, text: $vm.goal.title, axis: .vertical)
                     .fontWeight(.medium)
                 LineView()
             }
@@ -46,8 +48,7 @@ struct AddAndEditGoalView: View {
 
                 Spacer()
                 Button {
-                    vm.save()
-                    dismiss()
+                    validSave()
                 } label: {
                     Text(vm.isNew ? "添加" : "保存")
                         .fontWeight(.bold)
@@ -59,6 +60,8 @@ struct AddAndEditGoalView: View {
                                 .fill(Color.purple)
                         }
                 }
+                .disabled(vm.goal.isVaild ? false : true)
+                .opacity(vm.goal.isVaild ? 1 : 0.5)
 
             }
         }
@@ -82,6 +85,12 @@ struct AddAndEditGoalView: View {
         if !vm.isNew {
             CoreDataManager.shared.delete(vm.goal, in: CoreDataManager.shared.newContext)
         }
+        dismiss()
+    }
+    
+    private func validSave() {
+        UIImpactFeedbackGenerator.impact(style: .light)
+        vm.save()
         dismiss()
     }
 }
