@@ -225,19 +225,21 @@ extension SettingView {
     
     //版本信息
     var info: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Text("Design by ")
-                    .font(.system(size: 14, weight: .regular))
-                    .opacity(0.3)
-                Text("JianHui")
-                    .font(.system(size: 15, weight: .medium, design: .serif))
-            }
-            VStack(alignment: .leading) {
+        VStack(spacing: 10) {
+            Image(systemName: "sparkle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30)
+            VStack(spacing: 2) {
                 Text("版本 1.0 ")
                     .font(.system(size: 14, weight: .regular))
+                Text("Design by JianHui")
+                    .font(.system(size: 14, weight: .regular))
             }
+            
         }
+        .padding(.top, 40)
+        .opacity(0.2)
     }
     
     
