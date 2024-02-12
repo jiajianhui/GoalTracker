@@ -18,6 +18,9 @@ struct GoalListView: View {
     //当前选择的Goal
     @State var selectedGoal: GoalModel?
     
+    //设置
+    @State var showSettingView = false
+    
     
     var body: some View {
         NavigationStack {
@@ -36,6 +39,17 @@ struct GoalListView: View {
                         Text("Goal List")
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
                     }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSettingView.toggle()
+                    } label: {
+                        Image("Setting")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
+
                 }
             }
             .background {
@@ -69,6 +83,9 @@ struct GoalListView: View {
             AddAndEditGoalView(vm: .init(coreDataManager: coreDataManager, goal: goal))
                 .presentationDetents([.medium, .large])
         }
+        .sheet(isPresented: $showSettingView, content: {
+            
+        })
 
     }
 }

@@ -21,6 +21,8 @@
 		62CD6B7A2B6CE6EC00A2CBC2 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */; };
 		62CD6B7E2B6D24F500A2CBC2 /* PlaceholderOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B7D2B6D24F500A2CBC2 /* PlaceholderOptions.swift */; };
 		62CD6B802B6D29DA00A2CBC2 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B7F2B6D29DA00A2CBC2 /* Haptic.swift */; };
+		62CD6B822B70C8AA00A2CBC2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B812B70C8AA00A2CBC2 /* SettingView.swift */; };
+		62CD6B842B711A8500A2CBC2 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B832B711A8500A2CBC2 /* SettingRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		62CD6B7D2B6D24F500A2CBC2 /* PlaceholderOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderOptions.swift; sourceTree = "<group>"; };
 		62CD6B7F2B6D29DA00A2CBC2 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		62CD6B812B70C8AA00A2CBC2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		62CD6B832B711A8500A2CBC2 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				62CD6B682B6CA73E00A2CBC2 /* GoalListView.swift */,
 				62CD6B642B6CA62600A2CBC2 /* GoalRowView.swift */,
 				62CD6B6B2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift */,
+				62CD6B812B70C8AA00A2CBC2 /* SettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */,
+				62CD6B832B711A8500A2CBC2 /* SettingRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -201,12 +207,14 @@
 			files = (
 				62CD6B802B6D29DA00A2CBC2 /* Haptic.swift in Sources */,
 				62CD6B772B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld in Sources */,
+				62CD6B842B711A8500A2CBC2 /* SettingRowView.swift in Sources */,
 				62CD6B7E2B6D24F500A2CBC2 /* PlaceholderOptions.swift in Sources */,
 				62CD6B672B6CA70C00A2CBC2 /* ColorOptions.swift in Sources */,
 				62CD6B6C2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift in Sources */,
 				62CD6B692B6CA73E00A2CBC2 /* GoalListView.swift in Sources */,
 				62CD6B6E2B6CB50700A2CBC2 /* AddAndEditViewModel.swift in Sources */,
 				62CD6B722B6CB5CB00A2CBC2 /* GoalModel.swift in Sources */,
+				62CD6B822B70C8AA00A2CBC2 /* SettingView.swift in Sources */,
 				62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */,
 				62CD6B702B6CB57D00A2CBC2 /* CoreDataManager.swift in Sources */,
 				62CD6B7A2B6CE6EC00A2CBC2 /* LineView.swift in Sources */,
