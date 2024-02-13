@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6213AD252B7A4A5C0091D822 /* ChangeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */; };
+		6213AD272B7A4ADA0091D822 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213AD262B7A4ADA0091D822 /* ThemeData.swift */; };
 		62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */; };
 		62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */; };
 		62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconView.swift; sourceTree = "<group>"; };
+		6213AD262B7A4ADA0091D822 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
 		62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +60,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62509FC02B7B8A2200179F44 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B7F2B6D29DA00A2CBC2 /* Haptic.swift */,
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
+		62509FC12B7B8A5200179F44 /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				62CD6B662B6CA70C00A2CBC2 /* ColorOptions.swift */,
+				62CD6B7D2B6D24F500A2CBC2 /* PlaceholderOptions.swift */,
+				6213AD262B7A4ADA0091D822 /* ThemeData.swift */,
+			);
+			path = LocalData;
+			sourceTree = "<group>";
+		};
 		62CD6B4A2B6CA5CD00A2CBC2 = {
 			isa = PBXGroup;
 			children = (
@@ -79,11 +101,10 @@
 				62CD6B742B6CB61500A2CBC2 /* ViewModels */,
 				62CD6B732B6CB5F500A2CBC2 /* Models */,
 				62CD6B6A2B6CB3C800A2CBC2 /* Views */,
-				62CD6B662B6CA70C00A2CBC2 /* ColorOptions.swift */,
-				62CD6B7D2B6D24F500A2CBC2 /* PlaceholderOptions.swift */,
-				62CD6B7F2B6D29DA00A2CBC2 /* Haptic.swift */,
 				62CD6B782B6CE66500A2CBC2 /* Components */,
 				62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */,
+				62509FC12B7B8A5200179F44 /* LocalData */,
+				62509FC02B7B8A2200179F44 /* Frame */,
 				62CD6B5C2B6CA5CF00A2CBC2 /* Preview Content */,
 			);
 			path = GoalTracker;
@@ -104,6 +125,7 @@
 				62CD6B642B6CA62600A2CBC2 /* GoalRowView.swift */,
 				62CD6B6B2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift */,
 				62CD6B812B70C8AA00A2CBC2 /* SettingView.swift */,
+				6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +233,8 @@
 				62CD6B7E2B6D24F500A2CBC2 /* PlaceholderOptions.swift in Sources */,
 				62CD6B672B6CA70C00A2CBC2 /* ColorOptions.swift in Sources */,
 				62CD6B6C2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift in Sources */,
+				6213AD252B7A4A5C0091D822 /* ChangeIconView.swift in Sources */,
+				6213AD272B7A4ADA0091D822 /* ThemeData.swift in Sources */,
 				62CD6B692B6CA73E00A2CBC2 /* GoalListView.swift in Sources */,
 				62CD6B6E2B6CB50700A2CBC2 /* AddAndEditViewModel.swift in Sources */,
 				62CD6B722B6CB5CB00A2CBC2 /* GoalModel.swift in Sources */,
@@ -230,6 +254,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -293,6 +318,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -347,8 +373,10 @@
 		62CD6B622B6CA5CF00A2CBC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "App_icon02 App_icon03 App_icon04";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalTracker/Preview Content\"";
@@ -360,6 +388,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,6 +396,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjh.GoalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,8 +406,10 @@
 		62CD6B632B6CA5CF00A2CBC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "App_icon02 App_icon03 App_icon04";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalTracker/Preview Content\"";
@@ -389,6 +421,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +429,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjh.GoalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

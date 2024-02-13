@@ -84,7 +84,7 @@ struct GoalListView: View {
                 .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $showSettingView, content: {
-            
+            SettingView()
         })
 
     }
@@ -92,4 +92,5 @@ struct GoalListView: View {
 
 #Preview {
     GoalListView()
+        .environmentObject(AppSettings())
 }

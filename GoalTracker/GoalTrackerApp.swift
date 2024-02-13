@@ -13,6 +13,7 @@ struct GoalTrackerApp: App {
         WindowGroup {
             GoalListView()
                 .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
+                .environmentObject(AppSettings())
         }
     }
 }

@@ -9,13 +9,17 @@ import SwiftUI
 
 struct SettingView: View {
     
-    @State var sss = false
-    
     //分享链接
     private let url = URL(string: "https://apps.apple.com/app/id")!
     
     //隐私政策开关
     @State private var showPrivacy: Bool = false
+    
+    //更换icon开关
+    @State private var showChangeIcon: Bool = false
+    
+    //iCloud同步开关
+    @State private var icloudToggle: Bool = false
     
     
     var body: some View {
@@ -52,6 +56,10 @@ struct SettingView: View {
                 Text("privacy")
                     .presentationDetents([.medium, .large])
             }
+            .sheet(isPresented: $showChangeIcon) {
+                ChangeIconView()
+            }
+            
         }
     }
 }
@@ -175,14 +183,14 @@ extension SettingView {
     //更换图标、iCloud云同步
     private var changeIcon: some View {
         Button {
-            
+            showChangeIcon.toggle()
         } label: {
             SettingRowView(icon: "图标", title: "换个图标", info: "默认", showInfo: true)
         }
     }
     
     private var iCloudSync: some View {
-        Toggle(isOn: $sss, label: {
+        Toggle(isOn: $icloudToggle, label: {
             HStack {
                 Image("同步")
                 Text("iCloud同步")
@@ -247,4 +255,5 @@ extension SettingView {
 
 #Preview {
     SettingView()
+        .environmentObject(AppSettings())
 }
