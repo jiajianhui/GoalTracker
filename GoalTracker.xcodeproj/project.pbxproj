@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconView.swift; sourceTree = "<group>"; };
 		6213AD262B7A4ADA0091D822 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
+		625D85C42B7BB20C008D9946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
 		62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		62CD6B552B6CA5CE00A2CBC2 /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				625D85C42B7BB20C008D9946 /* Info.plist */,
 				62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */,
 				62CD6B742B6CB61500A2CBC2 /* ViewModels */,
 				62CD6B732B6CB5F500A2CBC2 /* Models */,
@@ -373,7 +375,7 @@
 		62CD6B622B6CA5CF00A2CBC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "App_icon02 App_icon03 App_icon04";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -383,12 +385,13 @@
 				DEVELOPMENT_TEAM = ML2CJSB2YZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoalTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +409,7 @@
 		62CD6B632B6CA5CF00A2CBC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "App_icon02 App_icon03 App_icon04";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -416,12 +419,13 @@
 				DEVELOPMENT_TEAM = ML2CJSB2YZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoalTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
