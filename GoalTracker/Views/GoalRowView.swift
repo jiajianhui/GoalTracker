@@ -41,12 +41,6 @@ struct GoalRowView: View {
                     Color.white.opacity(0.0001)
                 }
                 
-                .gesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged {_ in isPressed = true}
-                        .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
-                )
-                
                 Text(vm.goal.schedule == 10 ? "已完成" : "进行中")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundStyle(vm.goal.schedule == 10 ? .green : .purple)
@@ -57,6 +51,13 @@ struct GoalRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
             }
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged {_ in isPressed = true}
+                    .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
+            )
+            
+            
             if showDetail {
                 VStack(spacing: 19) {
                     
