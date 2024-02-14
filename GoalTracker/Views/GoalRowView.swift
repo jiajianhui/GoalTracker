@@ -21,6 +21,8 @@ struct GoalRowView: View {
     //当前选择的Goal
     @Binding var selectedGoal: GoalModel?
     
+    //
+    @State private var isPressed: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -39,6 +41,12 @@ struct GoalRowView: View {
                     Color.white.opacity(0.0001)
                 }
                 
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged {_ in isPressed = true}
+                        .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
+                )
+                
                 Text(vm.goal.schedule == 10 ? "已完成" : "进行中")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundStyle(vm.goal.schedule == 10 ? .green : .purple)
@@ -49,34 +57,9 @@ struct GoalRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
             }
-            .onTapGesture {
-                withAnimation(.easeIn) {
-                    vm.save()
-                    showDetail.toggle()
-                }
-            }
-            
             if showDetail {
                 VStack(spacing: 19) {
-                    LineView()
-                    HStack {
-                        Text("任务主题")
-                        Spacer()
-                        HStack {
-                            ForEach(ColorOptions.all.indices, id: \.self) { index in
-                                Button {
-                                    currentColor = ColorOptions.all[index]
-                                } label: {
-                                    Circle()
-                                        .fill(ColorOptions.all[index])
-                                        .frame(width: 24)
-                                }
-
-                            }
-                            
-                            
-                        }
-                    }
+                    
                     LineView()
                     HStack {
                         Text("当前进度")
@@ -141,6 +124,8 @@ struct GoalRowView: View {
         .background {
             bgStyle
         }
+        .scaleEffect(isPressed ? 0.9 : 1.0)
+        .animation(.spring(), value: isPressed)
     }
     
     //时间格式化
@@ -185,6 +170,28 @@ extension GoalRowView {
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color(uiColor: .systemGray5).opacity(0.6), lineWidth: 1)
             }
+    }
+    
+    //MARK: 颜色主题
+    private var colorTheme: some View {
+        VStack {
+            LineView()
+            HStack {
+                Text("任务主题")
+                Spacer()
+                HStack {
+                    ForEach(ColorOptions.all.indices, id: \.self) { index in
+                        Button {
+                            currentColor = ColorOptions.all[index]
+                        } label: {
+                            Circle()
+                                .fill(ColorOptions.all[index])
+                                .frame(width: 24)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

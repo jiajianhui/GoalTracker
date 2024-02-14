@@ -30,6 +30,7 @@ struct GoalListView: View {
                         GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
                     }
                 }
+                .animation(.spring())
                 .padding()
             }
             .toolbar {
