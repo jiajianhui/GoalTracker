@@ -51,9 +51,6 @@ struct GoalRowView: View {
             }
             .onTapGesture {
                 withAnimation(.easeIn) {
-//                    if !showDetail {
-//                        showDetail.toggle()
-//                    }
                     vm.save()
                     showDetail.toggle()
                 }
@@ -142,22 +139,7 @@ struct GoalRowView: View {
         }
         .padding(24)
         .background {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-                .stroke(Color(uiColor: .systemGray5).opacity(0.6), lineWidth: 1, antialiased: true)
-                .overlay(alignment: .leading) {
-                    VStack {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(vm.goal.schedule == 10 ? .green : .purple)
-                            .padding(4)
-                            .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 10), height: 12)
-                            .opacity(showDetail ? 0 : 1)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 6)
-                        
-                }
+            bgStyle
         }
     }
     
@@ -175,6 +157,35 @@ struct GoalRowView: View {
         dateFormatter.string(from: date)
     }
     
+}
+
+
+//MARK: - 视图组件
+extension GoalRowView {
+    
+    //MARK: 卡片背景
+    private var bgStyle: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .foregroundStyle(Color.white)
+        
+            .overlay(alignment: .leading) {
+                VStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(vm.goal.schedule == 10 ? .green : .purple)
+                        .padding(4)
+                        .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 10), height: 12)
+                        .opacity(showDetail ? 0 : 1)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 6)
+                    
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color(uiColor: .systemGray5).opacity(0.6), lineWidth: 1)
+            }
+    }
 }
 
 //#Preview {

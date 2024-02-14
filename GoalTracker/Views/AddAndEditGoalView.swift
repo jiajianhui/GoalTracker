@@ -38,7 +38,7 @@ struct AddAndEditGoalView: View {
                     
                 } label: {
                     Text(vm.isNew ? "取消" : "删除")
-                        .foregroundStyle(Color.purple)
+                        .foregroundStyle(vm.isNew ? Color.primary : Color.purple)
                         .frame(width: 80, height: 60)
                         .background {
                             RoundedRectangle(cornerRadius: 16)
@@ -57,11 +57,11 @@ struct AddAndEditGoalView: View {
                         .frame(height: 60)
                         .background {
                             RoundedRectangle(cornerRadius: 16)
-                                .fill(Color.purple)
+                                .fill(vm.isNew ? Color.primary : Color.purple)
+                                .opacity(vm.goal.isVaild ? 1 : 0.1)
                         }
                 }
                 .disabled(vm.goal.isVaild ? false : true)
-                .opacity(vm.goal.isVaild ? 1 : 0.5)
 
             }
         }

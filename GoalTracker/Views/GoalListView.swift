@@ -34,48 +34,19 @@ struct GoalListView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    HStack {
-                        Image(systemName: "sparkle")
-                        Text("Goal List")
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                    }
+                    logo
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showSettingView.toggle()
-                    } label: {
-                        Image("Setting")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                    }
-
+                    settingLink
                 }
+            }
+            .overlay(alignment: .bottomTrailing) {
+                plusBtn
             }
             .background {
                 Color(uiColor: .systemGray6).opacity(0.5).ignoresSafeArea()
             }
             
-        }
-        .overlay(alignment: .bottomTrailing) {
-            Button {
-                UIImpactFeedbackGenerator.impact(style: .light)
-                selectedGoal = GoalModel.empty()
-            } label: {
-                Circle()
-                    .foregroundStyle(Color.primary)
-                    .frame(width: 60)
-                    .overlay {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 18)
-                            .foregroundStyle(Color.white)
-                            .fontWeight(.bold)
-                    }
-                    .padding(30)
-                    .shadow(color: .primary.opacity(0.2), radius: 14, x: 0.0, y: 8)
-            }
         }
         .sheet(item: $selectedGoal) {
             selectedGoal = nil
@@ -87,6 +58,62 @@ struct GoalListView: View {
             SettingView()
         })
 
+    }
+}
+
+//MARK: - 视图组件
+extension GoalListView {
+    
+    //MARK: toolbar
+    private var logo: some View {
+        HStack {
+            Image(systemName: "sparkle")
+            Text("Goal List")
+                .font(.system(size: 20, weight: .semibold, design: .rounded))
+        }
+        .foregroundStyle(Color.primary)
+    }
+    
+    private var settingSheet: some View {
+        Button {
+            showSettingView.toggle()
+        } label: {
+            Image("Setting")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+        }
+    }
+    
+    private var settingLink: some View {
+        NavigationLink(destination: SettingView()) {
+            Image("Setting")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+        }
+    }
+    
+    //MARK: 添加按钮
+    private var plusBtn: some View {
+        Button {
+            UIImpactFeedbackGenerator.impact(style: .light)
+            selectedGoal = GoalModel.empty()
+        } label: {
+            Circle()
+                .foregroundStyle(Color.primary)
+                .frame(width: 60)
+                .overlay {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 18)
+                        .foregroundStyle(Color.white)
+                        .fontWeight(.bold)
+                }
+                .padding(30)
+                .shadow(color: .primary.opacity(0.2), radius: 14, x: 0.0, y: 8)
+        }
     }
 }
 

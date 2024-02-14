@@ -35,13 +35,10 @@ struct ChangeIconView: View {
                             .imageCheckStyle(check: appSettings.appIconSettings == i, cornerRadius: 24)
                         }
                     }
-                    
-                    Image("icon04")
                 }
                 .padding()
             }
-            .navigationTitle("更换图标")
-//            .toolbarTitleDisplayMode(.inline)
+            .navigationTitle("换个图标")
             .frame(maxWidth: .infinity)
             .background {
                 Color(uiColor: .systemGray6).ignoresSafeArea()

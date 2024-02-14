@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
     
     //分享链接
-    private let url = URL(string: "https://apps.apple.com/app/id")!
+    private let url = URL(string: "https://apps.apple.com/app/id6477860453")!
     
     //隐私政策开关
     @State private var showPrivacy: Bool = false
@@ -27,8 +27,6 @@ struct SettingView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
                     proView
-                    proView2
-                    
                     VStack(spacing: 32) {
                         changeIcon
                         iCloudSync
@@ -53,11 +51,13 @@ struct SettingView: View {
             }
             .navigationTitle("设置")
             .sheet(isPresented: $showPrivacy) {
-                Text("privacy")
+                privacyView
+                    .presentationDragIndicator(.visible)
                     .presentationDetents([.medium, .large])
             }
             .sheet(isPresented: $showChangeIcon) {
                 ChangeIconView()
+                    .presentationDragIndicator(.visible)
             }
             
         }
@@ -91,7 +91,7 @@ extension SettingView {
     
     //好评函数
     private func star() {
-        if let url = URL(string: "") {
+        if let url = URL(string: "https://itunes.apple.com/app/id6477860453?action=write-review") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
@@ -180,7 +180,7 @@ extension SettingView {
         .cardStyle()
     }
     
-    //更换图标、iCloud云同步
+    //更换图标
     private var changeIcon: some View {
         Button {
             showChangeIcon.toggle()
@@ -189,6 +189,7 @@ extension SettingView {
         }
     }
     
+    //iCloud云同步
     private var iCloudSync: some View {
         Toggle(isOn: $icloudToggle, label: {
             HStack {
@@ -208,12 +209,14 @@ extension SettingView {
             SettingRowView(icon: "好评", title: "给个好评", showInfo: false)
         }
     }
+    
     //分享按钮
     private var shareBtn: some View {
         ShareLink(item: url) {
             SettingRowView(icon: "分享", title: "分享给朋友", showInfo: false)
         }
     }
+    
     //反馈按钮
     private var emailFeedBackBtn: some View {
         Button {
@@ -222,12 +225,33 @@ extension SettingView {
             SettingRowView(icon: "反馈", title: "意见反馈", showInfo: false)
         }
     }
+    
     //展示隐私政策按钮
     private var privacyBtn: some View {
         Button {
             showPrivacy.toggle()
         } label: {
             SettingRowView(icon: "隐私", title: "隐私政策", showInfo: false)
+        }
+    }
+    
+    //隐私视图
+    private var privacyView: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("🙅")
+                        .font(.system(size: 46))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("隐私大于一切！！！")
+                    Text("我非常在意您的隐私，绝对不会上传您的任何数据，所有数据均在设备端离线运行。")
+                }
+                .lineSpacing(3)
+                .padding(.horizontal, 16)
+                .padding(.top, 4)
+                    
+            }
+            .navigationTitle("隐私政策")
         }
     }
     
