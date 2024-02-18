@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6213AD252B7A4A5C0091D822 /* ChangeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */; };
 		6213AD272B7A4ADA0091D822 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213AD262B7A4ADA0091D822 /* ThemeData.swift */; };
+		6239BF052B7DA4DE005F60FF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239BF042B7DA4DE005F60FF /* Store.swift */; };
+		6239BF082B7DA7D6005F60FF /* IAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239BF072B7DA7D6005F60FF /* IAP.swift */; };
+		625718BF2B7DB6EA00D4042D /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718BE2B7DB6EA00D4042D /* PurchaseView.swift */; };
 		62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */; };
 		62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */; };
 		62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */; };
@@ -30,6 +33,10 @@
 /* Begin PBXFileReference section */
 		6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconView.swift; sourceTree = "<group>"; };
 		6213AD262B7A4ADA0091D822 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
+		6239BF042B7DA4DE005F60FF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		6239BF062B7DA5D0005F60FF /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		6239BF072B7DA7D6005F60FF /* IAP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAP.swift; sourceTree = "<group>"; };
+		625718BE2B7DB6EA00D4042D /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		625D85C42B7BB20C008D9946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
@@ -65,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				62CD6B7F2B6D29DA00A2CBC2 /* Haptic.swift */,
+				6239BF042B7DA4DE005F60FF /* Store.swift */,
+				6239BF062B7DA5D0005F60FF /* Configuration.storekit */,
 			);
 			path = Frame;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 			children = (
 				62CD6B792B6CE6EC00A2CBC2 /* LineView.swift */,
 				62CD6B832B711A8500A2CBC2 /* SettingRowView.swift */,
+				6239BF072B7DA7D6005F60FF /* IAP.swift */,
+				625718BE2B7DB6EA00D4042D /* PurchaseView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -232,13 +243,16 @@
 				62CD6B802B6D29DA00A2CBC2 /* Haptic.swift in Sources */,
 				62CD6B772B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld in Sources */,
 				62CD6B842B711A8500A2CBC2 /* SettingRowView.swift in Sources */,
+				625718BF2B7DB6EA00D4042D /* PurchaseView.swift in Sources */,
 				62CD6B7E2B6D24F500A2CBC2 /* PlaceholderOptions.swift in Sources */,
+				6239BF082B7DA7D6005F60FF /* IAP.swift in Sources */,
 				62CD6B672B6CA70C00A2CBC2 /* ColorOptions.swift in Sources */,
 				62CD6B6C2B6CB4B600A2CBC2 /* AddAndEditGoalView.swift in Sources */,
 				6213AD252B7A4A5C0091D822 /* ChangeIconView.swift in Sources */,
 				6213AD272B7A4ADA0091D822 /* ThemeData.swift in Sources */,
 				62CD6B692B6CA73E00A2CBC2 /* GoalListView.swift in Sources */,
 				62CD6B6E2B6CB50700A2CBC2 /* AddAndEditViewModel.swift in Sources */,
+				6239BF052B7DA4DE005F60FF /* Store.swift in Sources */,
 				62CD6B722B6CB5CB00A2CBC2 /* GoalModel.swift in Sources */,
 				62CD6B822B70C8AA00A2CBC2 /* SettingView.swift in Sources */,
 				62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */,

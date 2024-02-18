@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingView: View {
     
+    @EnvironmentObject var appSettings: AppSettings
+    
     //分享链接
     private let url = URL(string: "https://apps.apple.com/app/id6477860453")!
     
@@ -21,12 +23,30 @@ struct SettingView: View {
     //iCloud同步开关
     @State private var icloudToggle: Bool = false
     
+    //展示Pro详情
+    @State var showPro: Bool = false
+    
+    //初始化Store
+    @ObservedObject var store: Store
+    
+    init() {
+        self.store = Store()
+    }
+    
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    proView
+                    ForEach(store.allProducts, id: \.self) { product in
+                        if product.isLocked {
+                            IAP()
+                        } else {
+                            Text("你已经是Pro会员")
+                                .font(.largeTitle)
+                        }
+                    }
+                    
                     VStack(spacing: 32) {
                         changeIcon
                         iCloudSync
@@ -37,7 +57,12 @@ struct SettingView: View {
                         starBtn
                         shareBtn
                         emailFeedBackBtn
+                    }
+                    .cardStyle()
+                    
+                    VStack(spacing: 32) {
                         privacyBtn
+                        useProtocolBtn
                     }
                     .cardStyle()
                     
@@ -60,6 +85,9 @@ struct SettingView: View {
                     .presentationDragIndicator(.visible)
             }
             
+        }
+        .onAppear {
+            store.loadStoredPurchases()
         }
     }
 }
@@ -139,7 +167,7 @@ extension SettingView {
                     .fontWeight(.bold)
             }
             Button {
-                
+                showPro.toggle()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color.primary)
@@ -185,7 +213,8 @@ extension SettingView {
         Button {
             showChangeIcon.toggle()
         } label: {
-            SettingRowView(icon: "图标", title: "换个图标", info: "默认", showInfo: true)
+            //动态切换info
+            SettingRowView(icon: "图标", title: "换个图标", info: "\(iconTitle[appSettings.appIconSettings])", showInfo: true)
         }
     }
     
@@ -235,7 +264,16 @@ extension SettingView {
         }
     }
     
-    //隐私视图
+    //展示用户协议
+    private var useProtocolBtn: some View {
+        Button {
+            showPrivacy.toggle()
+        } label: {
+            SettingRowView(icon: "协议", title: "使用协议", showInfo: false)
+        }
+    }
+    
+    //隐私政策
     private var privacyView: some View {
         NavigationStack {
             ScrollView {

@@ -21,6 +21,15 @@ struct GoalListView: View {
     //设置
     @State var showSettingView = false
     
+    //展示购买信息
+    @State var showStore = false
+    
+    @ObservedObject var store: Store
+    
+    init() {
+        self.store = Store()
+    }
+
     
     var body: some View {
         NavigationStack {
@@ -58,6 +67,16 @@ struct GoalListView: View {
         .sheet(isPresented: $showSettingView, content: {
             SettingView()
         })
+        
+        //若添加的目标数量超过3个，就触发该弹窗
+        .sheet(isPresented: $showStore, content: {
+            PurchaseView()
+                .presentationDragIndicator(.visible)
+        })
+        .onAppear {
+            store.loadStoredPurchases()
+        }
+        
 
     }
 }
@@ -98,8 +117,15 @@ extension GoalListView {
     //MARK: 添加按钮
     private var plusBtn: some View {
         Button {
-            UIImpactFeedbackGenerator.impact(style: .light)
-            selectedGoal = GoalModel.empty()
+            if store.purchased || goals.count < 3 {
+                UIImpactFeedbackGenerator.impact(style: .light)
+                selectedGoal = GoalModel.empty()
+                
+            } else {
+                UIImpactFeedbackGenerator.impact(style: .light)
+                showStore.toggle()
+            }
+            
         } label: {
             Circle()
                 .foregroundStyle(Color.primary)
