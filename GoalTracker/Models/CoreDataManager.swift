@@ -16,7 +16,7 @@ class CoreDataManager {
     static let shared = CoreDataManager()
     
     //创建容器，支持本地和网络存储
-    private let container: NSPersistentContainer
+    private let container: NSPersistentCloudKitContainer
     
     //创建上下文
     var viewContext: NSManagedObjectContext {
@@ -31,7 +31,7 @@ class CoreDataManager {
     
     //启动方法
     init() {
-        container = NSPersistentContainer(name: "GoalModel")  //创建容器，名称必须与模型名称一致
+        container = NSPersistentCloudKitContainer(name: "GoalModel")  //创建容器，名称必须与模型名称一致
         container.viewContext.automaticallyMergesChangesFromParent = true  //viewContext变化时，自动保存
         container.loadPersistentStores { _, error in
             if let error {
