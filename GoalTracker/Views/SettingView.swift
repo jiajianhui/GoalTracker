@@ -23,29 +23,14 @@ struct SettingView: View {
     //iCloud同步开关
     @State private var icloudToggle: Bool = false
     
-    //展示Pro详情
-    @State var showPro: Bool = false
     
-    //初始化Store
-    @ObservedObject var store: Store
-    
-    init() {
-        self.store = Store()
-    }
     
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    ForEach(store.allProducts, id: \.self) { product in
-                        if product.isLocked {
-                            IAP()
-                        } else {
-                            Text("你已经是Pro会员")
-                                .font(.largeTitle)
-                        }
-                    }
+                    IAP()
                     
                     VStack(spacing: 32) {
                         changeIcon
@@ -85,9 +70,6 @@ struct SettingView: View {
                     .presentationDragIndicator(.visible)
             }
             
-        }
-        .onAppear {
-            store.loadStoredPurchases()
         }
     }
 }
@@ -146,67 +128,6 @@ extension SettingView {
 //MARK: - 按钮视图
 extension SettingView {
     
-    //Pro视图
-    private var proView: some View {
-        VStack(spacing: 16) {
-            HStack(spacing: 6) {
-                Text("GoalTracker")
-                    .fontWeight(.medium)
-                Text("Pro")
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-                    .padding(2)
-                    .padding(.horizontal, 8)
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                    }
-            }
-            VStack(spacing: 10) {
-                Text("无限目标，iCloud数据同步")
-                    .font(.title3)
-                    .fontWeight(.bold)
-            }
-            Button {
-                showPro.toggle()
-            } label: {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.primary)
-                    .frame(height: 56)
-                    .overlay {
-                        Text("立即解锁")
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color.white)
-                    }
-            }
-            Button {
-                
-            } label: {
-                Text("了解详情")
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .foregroundStyle(Color.primary)
-            }
-        }
-        .cardStyle()
-    }
-    
-    private var proView2: some View {
-        VStack(spacing: 20) {
-            SettingRowView(icon: "Pro", title: "会员类型", showArrow: false, showInfo: true)
-            Button {
-                
-            } label: {
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(Color.primary)
-                    .frame(height: 60)
-                    .overlay {
-                        Text("解锁Pro版")
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color.white)
-                    }
-            }
-        }
-        .cardStyle()
-    }
     
     //更换图标
     private var changeIcon: some View {
