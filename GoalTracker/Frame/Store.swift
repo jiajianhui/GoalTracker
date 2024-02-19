@@ -12,6 +12,9 @@ typealias FetchCompletionHandler = (([SKProduct]) -> Void)
 typealias PurchaseCompletionHandler = ((SKPaymentTransaction?) -> Void)
 
 class Store: NSObject, ObservableObject {
+    
+    private var ubiquityStore: NSUbiquitousKeyValueStore? = NSUbiquitousKeyValueStore.default
+    
     @Published var allProducts = [Product]()
     
     private let allProductIdentifiers = Set(["com.jjh.GoalTracker.Pro"])
@@ -45,7 +48,11 @@ class Store: NSObject, ObservableObject {
     }
     
     func loadStoredPurchases() {
-        if let storedPurchases = UserDefaults.standard.object(forKey: "completedPurchases") as? [String] {
+//        if let storedPurchases = UserDefaults.standard.object(forKey: "completedPurchases") as? [String] {
+//            self.completedPurchases = storedPurchases
+//        }
+        // 从 iCloud KeyValue Store 中加载已完成的购买信息
+        if let storedPurchases = ubiquityStore?.array(forKey: "completedPurchases") as? [String] {
             self.completedPurchases = storedPurchases
         }
     }
@@ -81,9 +88,6 @@ extension Store {
     
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
-        if !completedPurchases.isEmpty {
-            UserDefaults.standard.setValue(completedPurchases, forKey: "completedPurchases")
-        }
     }
 }
 
@@ -112,7 +116,8 @@ extension Store: SKPaymentTransactionObserver {
             }
             
             if !completedPurchases.isEmpty {
-                UserDefaults.standard.setValue(completedPurchases, forKey: "completedPurchases")
+                self.ubiquityStore?.set(self.completedPurchases, forKey: "completedPurchases")
+                self.ubiquityStore?.synchronize()
             }
         }
     }
