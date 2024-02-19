@@ -16,6 +16,8 @@ struct SettingView: View {
     
     //隐私政策开关
     @State private var showPrivacy: Bool = false
+    //用户协议开关
+    @State private var showAgreement: Bool = false
     
     //更换icon开关
     @State private var showChangeIcon: Bool = false
@@ -61,9 +63,12 @@ struct SettingView: View {
             }
             .navigationTitle("设置")
             .sheet(isPresented: $showPrivacy) {
-                privacyView
+                PrivacyAndAgreementView(showPrivacy: true)
                     .presentationDragIndicator(.visible)
-                    .presentationDetents([.medium, .large])
+            }
+            .sheet(isPresented: $showAgreement) {
+                PrivacyAndAgreementView()
+                    .presentationDragIndicator(.visible)
             }
             .sheet(isPresented: $showChangeIcon) {
                 ChangeIconView()
@@ -188,49 +193,49 @@ extension SettingView {
     //展示用户协议
     private var useProtocolBtn: some View {
         Button {
-            showPrivacy.toggle()
+            showAgreement.toggle()
         } label: {
             SettingRowView(icon: "协议", title: "使用协议", showInfo: false)
         }
     }
     
-    //隐私政策
-    private var privacyView: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("🙅")
-                        .font(.system(size: 46))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("隐私大于一切！！！")
-                    Text("我非常在意您的隐私，绝对不会上传您的任何数据，所有数据均在设备端离线运行。")
-                }
-                .lineSpacing(3)
-                .padding(.horizontal, 16)
-                .padding(.top, 4)
-                    
-            }
-            .navigationTitle("隐私政策")
-        }
-    }
     
     //版本信息
     var info: some View {
-        VStack(spacing: 10) {
-            Image(systemName: "sparkle")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30)
-            VStack(spacing: 2) {
-                Text("版本 1.0 ")
-                    .font(.system(size: 14, weight: .regular))
-                Text("Design by JianHui")
-                    .font(.system(size: 14, weight: .regular))
+        VStack(spacing: 6) {
+            VStack {
+                Image(systemName: "sparkle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30)
+                
+                //获取app名称
+                if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+                    Text("\(appName)")
+                } else {
+                    
+                }
+
+                
+                //获取app版本
+                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    Text("版本 \(appVersion)")
+                } else {
+                    
+                }
             }
+            .font(.system(size: 13, weight: .regular))
+            .opacity(0.4)
+            
+            VStack {
+                Text("Designed by")
+                Text("JianHui")
+            }
+            .font(.system(size: 12, weight: .regular))
+            .opacity(0.2)
             
         }
         .padding(.top, 40)
-        .opacity(0.2)
     }
     
     

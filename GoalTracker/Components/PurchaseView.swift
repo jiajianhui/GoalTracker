@@ -12,6 +12,11 @@ struct PurchaseView: View {
     //环境变量，关闭当前弹窗
     @Environment(\.dismiss) private var dismiss
     
+    //展示隐私政策
+    @State private var showPrivacy: Bool = false
+    //展示隐私政策
+    @State private var showAgreement: Bool = false
+    
     //1、 创建Store实体
     @StateObject var store = Store()
     
@@ -57,7 +62,6 @@ struct PurchaseView: View {
                             bottomInfo
                             
                         }
-                        
                     }
                 }
                 .padding(.horizontal)
@@ -68,6 +72,14 @@ struct PurchaseView: View {
         .onAppear {
             store.loadStoredPurchases()
         }
+        .sheet(isPresented: $showPrivacy, content: {
+            PrivacyAndAgreementView(showPrivacy: true)
+                .presentationDragIndicator(.visible)
+        })
+        .sheet(isPresented: $showAgreement, content: {
+            PrivacyAndAgreementView(showPrivacy: true)
+                .presentationDragIndicator(.visible)
+        })
         
     }
 }
@@ -161,12 +173,12 @@ extension PurchaseView {
     private var bottomInfo: some View {
         HStack(spacing: 24) {
             Button {
-                
+                showAgreement.toggle()
             } label: {
                 Text("使用协议")
             }
             Button {
-                
+                showPrivacy.toggle()
             } label: {
                 Text("隐私政策")
             }
