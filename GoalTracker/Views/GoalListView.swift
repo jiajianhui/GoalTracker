@@ -33,14 +33,22 @@ struct GoalListView: View {
     
     var body: some View {
         NavigationStack {
+            
             ScrollView {
                 LazyVStack(spacing: 10) {
-                    ForEach(goals) { goal in
-                        GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
+                    if goals.isEmpty {
+                        EmptyGoalView(goalModel: $selectedGoal)
+                            .offset(y: 40)
+                            .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
+                    } else {
+                        ForEach(goals) { goal in
+                            GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
+                        }
+                        .animation(.spring())
                     }
                 }
-                .animation(.spring())
                 .padding()
+                
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -51,10 +59,18 @@ struct GoalListView: View {
                 }
             }
             .overlay(alignment: .bottomTrailing) {
-                plusBtn
+                if goals.isEmpty {
+                    
+                } else {
+                    plusBtn
+                }
             }
             .background {
-                Color(uiColor: .systemGray6).opacity(0.5).ignoresSafeArea()
+                if goals.isEmpty {
+                    Color(uiColor: .systemGray6).ignoresSafeArea()
+                } else {
+                    Color(uiColor: .systemGray6).opacity(0.5).ignoresSafeArea()
+                }
             }
             
         }

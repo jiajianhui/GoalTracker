@@ -202,39 +202,42 @@ extension SettingView {
     
     //版本信息
     var info: some View {
-        VStack(spacing: 6) {
-            VStack {
-                Image(systemName: "sparkle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30)
-                
-                //获取app名称
-                if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
-                    Text("\(appName)")
-                } else {
-                    
-                }
-
-                
-                //获取app版本
-                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                    Text("版本 \(appVersion)")
-                } else {
-                    
-                }
-            }
-            .font(.system(size: 13, weight: .regular))
-            .opacity(0.4)
+        VStack(spacing: 12) {
+            //logo
+            Image(systemName: "sparkle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30)
             
             VStack {
-                Text("Designed by")
-                Text("JianHui")
+                //具体信息
+                HStack(spacing: 4) {
+                    //获取app名称
+                    if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+                        Text("\(appName)")
+                    } else {
+                        
+                    }
+                    HStack(spacing: 2) {
+                        Text("©")
+                            .font(.system(size: 15))
+                        Text("2024")
+                    }
+                    //获取app版本
+                    if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                        Text("版本 \(appVersion)")
+                    } else {
+                        
+                    }
+                }
+                    .font(.system(size: 13, weight: .regular))
+                
+                Text("Designed by JianHui")
+                    .font(.system(size: 11, weight: .regular))
             }
-            .font(.system(size: 12, weight: .regular))
-            .opacity(0.2)
             
         }
+        .opacity(0.2)
         .padding(.top, 40)
     }
     

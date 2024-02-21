@@ -13,6 +13,7 @@
 		6239BF082B7DA7D6005F60FF /* IAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239BF072B7DA7D6005F60FF /* IAP.swift */; };
 		625718BF2B7DB6EA00D4042D /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718BE2B7DB6EA00D4042D /* PurchaseView.swift */; };
 		625718C42B834A8200D4042D /* PrivacyAndAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718C32B834A8200D4042D /* PrivacyAndAgreementView.swift */; };
+		625718C62B8445B600D4042D /* EmptyGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718C52B8445B600D4042D /* EmptyGoalView.swift */; };
 		62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */; };
 		62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */; };
 		62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		625718BE2B7DB6EA00D4042D /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		625718C22B823D1300D4042D /* GoalTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoalTracker.entitlements; sourceTree = "<group>"; };
 		625718C32B834A8200D4042D /* PrivacyAndAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndAgreementView.swift; sourceTree = "<group>"; };
+		625718C52B8445B600D4042D /* EmptyGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGoalView.swift; sourceTree = "<group>"; };
 		625D85C42B7BB20C008D9946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				62CD6B812B70C8AA00A2CBC2 /* SettingView.swift */,
 				6213AD242B7A4A5C0091D822 /* ChangeIconView.swift */,
 				625718C32B834A8200D4042D /* PrivacyAndAgreementView.swift */,
+				625718C52B8445B600D4042D /* EmptyGoalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CD6B802B6D29DA00A2CBC2 /* Haptic.swift in Sources */,
+				625718C62B8445B600D4042D /* EmptyGoalView.swift in Sources */,
 				62CD6B772B6CB68C00A2CBC2 /* GoalModel.xcdatamodeld in Sources */,
 				62CD6B842B711A8500A2CBC2 /* SettingRowView.swift in Sources */,
 				625718BF2B7DB6EA00D4042D /* PurchaseView.swift in Sources */,

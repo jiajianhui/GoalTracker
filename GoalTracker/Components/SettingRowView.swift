@@ -38,7 +38,7 @@ struct SettingRowView: View {
                         .font(.callout)
                 }
                 if showArrow {
-                    Image("Arrow")
+                    Image("arrow")
                 }
             }
             .opacity(0.3)
