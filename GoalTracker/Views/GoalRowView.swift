@@ -22,7 +22,7 @@ struct GoalRowView: View {
     @Binding var selectedGoal: GoalModel?
     
     //点击时的缩放变量
-    @State private var isPressed: Bool = false
+    @State private var scale: CGFloat = 1
     
     var body: some View {
         VStack(spacing: 20) {
@@ -31,21 +31,8 @@ struct GoalRowView: View {
                 state
             }
             .onTapGesture {
-                UIImpactFeedbackGenerator.impact(style: .light)
-                withAnimation(.spring()) {
-                    showDetail.toggle()
-                }
-                
-                vm.save()
+                tapAnimation()
             }
-            
-            //该手势与滚动手势有冲突
-//            .gesture(
-//                DragGesture(minimumDistance: 0)
-//                    .onChanged {_ in isPressed = true}
-//                    .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
-//            )
-            
             
             if showDetail {
                 VStack(spacing: 19) {
@@ -54,7 +41,7 @@ struct GoalRowView: View {
                     LineView()
                     gauge
                     LineView()
-                    Stepper("更新任务进度", value: $vm.goal.schedule, in: 0...10, step: 1)
+                    Stepper("更新进度", value: $vm.goal.schedule, in: 0...10, step: 1)
                     LineView()
                     btns
                 }
@@ -64,8 +51,7 @@ struct GoalRowView: View {
         .background {
             bgStyle
         }
-        .scaleEffect(isPressed ? 0.9 : 1.0)
-        .animation(.spring(), value: isPressed)
+        .scaleEffect(scale)
     }
     
     //时间格式化
@@ -88,7 +74,7 @@ struct GoalRowView: View {
 //MARK: - 视图组件
 extension GoalRowView {
     
-    //MARK: 卡片背景
+    //卡片背景
     private var bgStyle: some View {
         RoundedRectangle(cornerRadius: 20)
             .foregroundStyle(Color.white)
@@ -112,7 +98,7 @@ extension GoalRowView {
             }
     }
     
-    //MARK: 颜色主题
+    //颜色主题
     private var colorTheme: some View {
         VStack {
             LineView()
@@ -134,7 +120,7 @@ extension GoalRowView {
         }
     }
     
-    //MARK: 目标标题、时间
+    //目标标题、时间
     private var titleAndDate: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(vm.goal.title)
@@ -161,7 +147,7 @@ extension GoalRowView {
         }
     }
     
-    //MARK: 目标状态
+    //目标状态
     private var state: some View {
         Text(vm.goal.schedule == 10 ? "已完成" : "进行中")
             .font(.system(size: 12, weight: .bold, design: .rounded))
@@ -242,6 +228,29 @@ extension GoalRowView {
         .padding(.top, 8)
     }
     
+    
+    //MARK: - 点击缩放动画
+    private func tapAnimation() {
+        UIImpactFeedbackGenerator.impact(style: .light)
+        withAnimation(.spring()) {
+            showDetail.toggle()
+        }
+        
+        vm.save()
+        
+        //实现缩放动画
+        let tapAnimation = Animation.spring()
+        
+        withAnimation(tapAnimation){
+            scale = 0.93
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            withAnimation(tapAnimation) {
+                scale = 1
+            }
+        }
+    }
     
     
 }
