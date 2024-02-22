@@ -156,8 +156,7 @@ extension GoalListView {
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
                 }
-                .padding(30)
-                .shadow(color: .primary.opacity(0.2), radius: 14, x: 0.0, y: 8)
+                .offset(x: -30, y: -20)
         }
     }
 }

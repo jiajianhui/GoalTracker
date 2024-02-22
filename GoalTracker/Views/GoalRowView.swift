@@ -50,6 +50,8 @@ struct GoalRowView: View {
             if showDetail {
                 VStack(spacing: 19) {
                     LineView()
+                    date
+                    LineView()
                     gauge
                     LineView()
                     Stepper("更新任务进度", value: $vm.goal.schedule, in: 0...10, step: 1)
@@ -71,7 +73,7 @@ struct GoalRowView: View {
         let formatter = DateFormatter()
         
         formatter.locale = Locale(identifier: "zh_Hans")
-        formatter.setLocalizedDateFormatFromTemplate("MM-dd")
+        formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm")
         
         return formatter
     }()
@@ -139,9 +141,19 @@ extension GoalRowView {
                 .font(.title2)
                 .fontWeight(.bold)
                 .lineLimit(showDetail ? 100 : 1)
-            Text(displayDate(vm.goal.date))
-                .font(.system(size: 12, weight: .medium, design: .rounded))
-                .opacity(0.6)
+            Group {
+                if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 == 0 && vm.goal.schedule != 10 {
+                    Text("今天创建")
+                } else if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 != 0 && vm.goal.schedule == 10 {
+                    Text("完成啦🎉")
+                } else if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 == 0 && vm.goal.schedule == 10 {
+                    Text("太高效了吧，1天就完成了😎")
+                } else {
+                    Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                }
+            }
+            .font(.system(size: 12, weight: .medium, design: .rounded))
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background {
@@ -162,6 +174,14 @@ extension GoalRowView {
     }
     
     //MARK: - 详情部分
+    private var date: some View {
+        HStack {
+            Text("创建日期")
+            Spacer()
+            Text(displayDate(vm.goal.date))
+        }
+    }
+    
     private var gauge: some View {
         HStack {
             Text("当前进度")
