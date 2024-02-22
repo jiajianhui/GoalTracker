@@ -21,7 +21,7 @@ struct GoalRowView: View {
     //当前选择的Goal
     @Binding var selectedGoal: GoalModel?
     
-    //
+    //点击时的缩放变量
     @State private var isPressed: Bool = false
     
     var body: some View {
@@ -51,11 +51,21 @@ struct GoalRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
             }
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged {_ in isPressed = true}
-                    .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
-            )
+            .onTapGesture {
+                UIImpactFeedbackGenerator.impact(style: .light)
+                withAnimation(.spring()) {
+                    showDetail.toggle()
+                }
+                
+                vm.save()
+            }
+            
+            //该手势与滚动手势有冲突
+//            .gesture(
+//                DragGesture(minimumDistance: 0)
+//                    .onChanged {_ in isPressed = true}
+//                    .onEnded {_ in isPressed = false; showDetail.toggle(); vm.save()}
+//            )
             
             
             if showDetail {

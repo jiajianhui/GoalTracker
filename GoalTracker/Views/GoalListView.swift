@@ -41,10 +41,12 @@ struct GoalListView: View {
                             .offset(y: 40)
                             .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
                     } else {
-                        ForEach(goals) { goal in
-                            GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
+                        withAnimation(.spring()) {
+                            ForEach(goals) { goal in
+                                GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
+                                    .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
+                            }
                         }
-                        .animation(.spring())
                     }
                 }
                 .padding()
