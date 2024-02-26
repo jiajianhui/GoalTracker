@@ -56,7 +56,7 @@ struct IAP: View {
                                                 .font(.system(size: 12))
                                                 .opacity(0.8)
                                         }
-                                        .foregroundStyle(Color.white)
+                                        .foregroundStyle(Color("btnTextColor"))
                                     }
                             }
                             subBtn
@@ -105,7 +105,7 @@ extension IAP {
                 .fontWeight(.medium)
             Text("Pro")
                 .fontWeight(.bold)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color("btnTextColor"))
                 .padding(2)
                 .padding(.horizontal, 8)
                 .background {
@@ -136,7 +136,7 @@ extension IAP {
                 .overlay {
                     Text("查看详情")
                         .fontWeight(.bold)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color("btnTextColor"))
                 }
         }
     }

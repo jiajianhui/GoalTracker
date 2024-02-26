@@ -82,7 +82,7 @@ extension EmptyGoalView {
                 .frame(width: 280, height: 64)
                 .overlay {
                     Text("添加")
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color("btnTextColor"))
                         .fontWeight(.bold)
                 }
         }

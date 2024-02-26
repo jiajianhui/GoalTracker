@@ -110,7 +110,7 @@ extension ChangeIconView {
     private var proIcon: some View {
         Text("Pro")
             .fontWeight(.bold)
-            .foregroundStyle(.white)
+            .foregroundStyle(Color("btnTextColor"))
             .padding(2)
             .padding(.horizontal, 8)
             .background {

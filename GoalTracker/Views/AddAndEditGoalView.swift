@@ -52,7 +52,7 @@ struct AddAndEditGoalView: View {
                 } label: {
                     Text(vm.isNew ? "添加" : "保存")
                         .fontWeight(.bold)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color("btnTextColor"))
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)
                         .background {

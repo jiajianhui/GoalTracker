@@ -77,7 +77,7 @@ extension GoalRowView {
     //卡片背景
     private var bgStyle: some View {
         RoundedRectangle(cornerRadius: 20)
-            .foregroundStyle(Color.white)
+            .foregroundStyle(Color("cardBgColor"))
         
             .overlay(alignment: .leading) {
                 VStack {

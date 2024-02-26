@@ -165,7 +165,7 @@ extension GoalListView {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 18)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color("btnTextColor"))
                         .fontWeight(.bold)
                 }
                 .offset(x: -30, y: -20)

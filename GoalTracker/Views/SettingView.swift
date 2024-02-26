@@ -89,7 +89,7 @@ struct CardStyle: ViewModifier {
             .padding(.vertical, 4)
             .background {
                 RoundedRectangle(cornerRadius: 24)
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color("cardBgColor"))
             }
     }
 }

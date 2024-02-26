@@ -54,7 +54,7 @@ struct PurchaseView: View {
                                                     .font(.system(size: 12))
                                                     .opacity(0.8)
                                             }
-                                            .foregroundStyle(Color.white)
+                                            .foregroundStyle(Color("btnTextColor"))
                                         }
                                 }
                             }
@@ -123,7 +123,7 @@ extension PurchaseView {
                     .fontWeight(.bold)
                 Text("Pro")
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("btnTextColor"))
                     .padding(2)
                     .padding(.horizontal, 14)
                     .background {
@@ -163,7 +163,7 @@ extension PurchaseView {
                 .overlay {
                     Text("返回")
                         .fontWeight(.bold)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color("btnTextColor"))
                 }
         }
         
