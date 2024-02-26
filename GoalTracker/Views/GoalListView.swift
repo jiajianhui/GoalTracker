@@ -23,6 +23,8 @@ struct GoalListView: View {
     
     //从数据库拿数据
     @FetchRequest(fetchRequest: GoalModel.all()) var goals
+    @FetchRequest(fetchRequest: GoalModel.complete()) var completeGoals
+    @FetchRequest(fetchRequest: GoalModel.unFinish()) var unfinishGoals
     
     //当前选择的Goal
     @State var selectedGoal: GoalModel?
@@ -48,11 +50,21 @@ struct GoalListView: View {
             
             ScrollView {
                 LazyVStack(spacing: 10) {
-                    if goals.isEmpty {
+                    if goals.isEmpty && num == 0 {
                         EmptyGoalView(goalModel: $selectedGoal)
                             .offset(y: 40)
                             .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
+                    } else if unfinishGoals.isEmpty && num == 1 {
+                        EmptyGoalView(goalModel: $selectedGoal)
+                            .offset(y: 40)
+                            .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
+                    } else if completeGoals.isEmpty && num == 2{
+                        FilterView(goals: goals, num: $num)
+                        Text("暂无已完成的目标")
+                            .opacity(0.5)
+                            .offset(y: 100)
                     } else {
+                        FilterView(goals: goals, num: $num)
                         withAnimation(.spring()) {
                             ForEach(goals) { goal in
                                 GoalRowView(vm: .init(coreDataManager: coreDataManager, goal: goal), selectedGoal: $selectedGoal)
@@ -61,12 +73,12 @@ struct GoalListView: View {
                         }
                     }
                 }
-                .padding()
+                .padding(.horizontal)
                 
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    logo
+                    date
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     settingLink
@@ -121,6 +133,25 @@ extension GoalListView {
             Text("Goal List")
                 .font(.system(size: 20, weight: .semibold, design: .rounded))
         }
+        .foregroundStyle(Color.primary)
+    }
+    
+    private var date: some View {
+        HStack(spacing: 4) {
+            Text("\(Calendar.current.component(.month, from: Date()))月")
+            Text("\(Calendar.current.component(.day, from: Date()))日")
+                .fontWeight(.heavy)
+        }
+        .font(.system(size: 20))
+        .foregroundStyle(Color.primary)
+    }
+    
+    private var number: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("总共 \(goals.count)")
+            Text("已完成 \(completeGoals.count)")
+        }
+        .font(.system(size: 12, weight: .bold))
         .foregroundStyle(Color.primary)
     }
     

@@ -51,6 +51,23 @@ extension GoalModel {
         return request
     }
     
+    static func complete() -> NSFetchRequest<GoalModel> {
+        let request: NSFetchRequest<GoalModel> = goalsFetchRequest
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \GoalModel.date, ascending: true)
+        ]
+        request.predicate = NSPredicate(format: "schedule == 10", NSNumber(value: true))
+        return request
+    }
+    static func unFinish() -> NSFetchRequest<GoalModel> {
+        let request: NSFetchRequest<GoalModel> = goalsFetchRequest
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \GoalModel.date, ascending: true)
+        ]
+        request.predicate = NSPredicate(format: "schedule != 10", NSNumber(value: true))
+        return request
+    }
+    
     //筛选
     static func filter(with config: FilterConfig) -> NSPredicate {
         switch config.filter {

@@ -59,7 +59,7 @@ struct SelectedTabModifier: ViewModifier {
     func body(content: Content) -> some View {
         if isSelected {
             content
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color("btnTextColor"))
                 .font(.system(size: 15, weight: .medium))
                 .padding(8)
                 .padding(.horizontal, 10)
