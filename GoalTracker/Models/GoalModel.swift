@@ -50,5 +50,17 @@ extension GoalModel {
         ]
         return request
     }
+    
+    //筛选
+    static func filter(with config: FilterConfig) -> NSPredicate {
+        switch config.filter {
+        case .all:
+            return NSPredicate(value: true)
+        case.complete:
+            return NSPredicate(format: "schedule == 10", NSNumber(value: true))
+        case .unfinish:
+            return NSPredicate(format: "schedule != 10", NSNumber(value: true))
+        }
+    }
 }
 

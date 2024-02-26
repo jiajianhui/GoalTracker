@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+//筛选配置项
+struct FilterConfig: Equatable, Hashable {
+    enum Filter {
+        case all, unfinish, complete
+    }
+    
+    var filter: Filter = .all
+}
+
 struct GoalListView: View {
     
     //初始化CoreData
@@ -29,8 +38,11 @@ struct GoalListView: View {
     init() {
         self.store = Store()
     }
-
     
+    //筛选配置项
+    @State private var num: Int = 0
+
+
     var body: some View {
         NavigationStack {
             

@@ -36,7 +36,7 @@ struct SettingView: View {
                     
                     VStack(spacing: 32) {
                         changeIcon
-                        iCloudSync
+//                        iCloudSync
                     }
                     .cardStyle()
                     
