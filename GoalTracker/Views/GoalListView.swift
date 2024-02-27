@@ -55,9 +55,10 @@ struct GoalListView: View {
                             .offset(y: 40)
                             .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
                     } else if unfinishGoals.isEmpty && num == 1 {
-                        EmptyGoalView(goalModel: $selectedGoal)
-                            .offset(y: 40)
-                            .transition(AnyTransition.opacity.animation(.easeOut))  //过渡动画
+                        FilterView(goals: goals, num: $num)
+                        Text("暂无进行中的目标")
+                            .opacity(0.5)
+                            .offset(y: 100)
                     } else if completeGoals.isEmpty && num == 2{
                         FilterView(goals: goals, num: $num)
                         Text("暂无已完成的目标")
