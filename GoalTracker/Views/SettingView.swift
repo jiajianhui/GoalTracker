@@ -25,7 +25,8 @@ struct SettingView: View {
     //iCloud同步开关
     @State private var icloudToggle: Bool = false
     
-    
+    //
+    @StateObject var notificationManager = NotificationManager()
     
     
     var body: some View {
@@ -37,6 +38,7 @@ struct SettingView: View {
                     VStack(spacing: 32) {
                         changeIcon
 //                        iCloudSync
+                        notificationBtn
                     }
                     .cardStyle()
                     
@@ -150,6 +152,18 @@ extension SettingView {
             HStack {
                 Image("同步")
                 Text("iCloud同步")
+                    .fontWeight(.medium)
+            }
+        })
+        .tint(.primary)
+    }
+    
+    //通知开关
+    private var notificationBtn: some View {
+        Toggle(isOn: $notificationManager.isNotificationEnabled, label: {
+            HStack {
+                Image("通知")
+                Text("每日回顾提醒")
                     .fontWeight(.medium)
             }
         })
