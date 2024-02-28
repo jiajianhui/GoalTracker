@@ -10,30 +10,23 @@ import UserNotifications
 
 @main
 struct GoalTrackerApp: App {
+    
+    //记录初次打开应用，防止重复调用通知
+    @AppStorage("firstLaunch") var firstLaunch = true
+    
     var body: some Scene {
         WindowGroup {
             GoalListView()
                 .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
                 .environmentObject(AppSettings())
                 .onAppear {
-                    requestNotificationAuthorization()
-                    if NotificationManager().isNotificationEnabled {
+                    NotificationManager().requestNotificationAuthorization()
+                    
+                    if firstLaunch {
+                        firstLaunch = false
                         NotificationManager().toggleNotification()
-                    } else {
-                        
                     }
                 }
         }
     }
-    
-    func requestNotificationAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                print("用户已授权通知")
-            } else if let error = error {
-                print("通知授权失败: \(error.localizedDescription)")
-            }
-        }
-    }
-
 }

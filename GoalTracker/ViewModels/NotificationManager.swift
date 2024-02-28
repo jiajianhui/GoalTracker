@@ -21,6 +21,17 @@ class NotificationManager: ObservableObject {
         }
     }
     
+    //通知权限
+    func requestNotificationAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("用户已授权通知")
+            } else if let error = error {
+                print("通知授权失败: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
     //每天通知函数
     func dailyNotification() {
@@ -75,7 +86,7 @@ class NotificationManager: ObservableObject {
             if let error = error {
                 print("通知添加失败 \(error)")
             } else {
-                print("每天自动通知添加成功")
+                print("每周自动通知添加成功")
             }
         }
         

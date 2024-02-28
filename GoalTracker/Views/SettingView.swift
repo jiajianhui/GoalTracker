@@ -168,6 +168,9 @@ extension SettingView {
             }
         })
         .tint(.primary)
+        .onChange(of: notificationManager.isNotificationEnabled) { newValue in
+            notificationManager.toggleNotification()
+        }
     }
     
     //好评按钮
