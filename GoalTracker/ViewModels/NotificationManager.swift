@@ -17,7 +17,7 @@ class NotificationManager: ObservableObject {
         if isNotificationEnabled {
             dailyNotification()
         } else {
-            
+            cancelNotification()
         }
     }
     
@@ -25,6 +25,7 @@ class NotificationManager: ObservableObject {
     func requestNotificationAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
+                self.toggleNotification()  //只有用户授权通知权限后，才执行该函数（添加通知）
                 print("用户已授权通知")
             } else if let error = error {
                 print("通知授权失败: \(error.localizedDescription)")
@@ -49,16 +50,28 @@ class NotificationManager: ObservableObject {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         //创建通知请求
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "dailyNotification", content: content, trigger: trigger)
         
-        //将通知请求添加到用户通知中心
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("通知添加失败 \(error)")
+        //将通知请求添加到用户通知中心，检查是否已经存在相同标识符的通知请求
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let extistingRequest = requests.first { $0.identifier == "dailyNotification" }
+            
+            //如果不存在相同标识符的通知请求则添加通知，否则不添加
+            if extistingRequest == nil {
+                
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("每天通知添加失败 \(error)")
+                    } else {
+                        print("每天通知添加成功")
+                    }
+                }
             } else {
-                print("每天自动通知添加成功")
+                print("每天通知已存在")
             }
+            
         }
+        
         
     }
     
@@ -79,16 +92,32 @@ class NotificationManager: ObservableObject {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         //创建通知请求
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "weeklyNotification", content: content, trigger: trigger)
         
-        //将通知请求添加到用户通知中心
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("通知添加失败 \(error)")
+        //将通知请求添加到用户通知中心，检查是否已经存在相同标识符的通知请求
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let extistingRequest = requests.first { $0.identifier == "weeklyNotification" }
+            
+            //如果不存在相同标识符的通知请求则添加通知，否则不添加
+            if extistingRequest == nil {
+                
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("每周通知添加失败 \(error)")
+                    } else {
+                        print("每周通知添加成功")
+                    }
+                }
             } else {
-                print("每周自动通知添加成功")
+                print("每周通知已存在")
             }
+            
         }
         
+    }
+    
+    //取消通知函数
+    func cancelNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 }

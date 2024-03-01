@@ -11,8 +11,7 @@ import UserNotifications
 @main
 struct GoalTrackerApp: App {
     
-    //记录初次打开应用，防止重复调用通知
-    @AppStorage("firstLaunch") var firstLaunch = true
+    @StateObject var notificationManager = NotificationManager()
     
     var body: some Scene {
         WindowGroup {
@@ -20,13 +19,9 @@ struct GoalTrackerApp: App {
                 GoalListView()
                     .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
                     .environmentObject(AppSettings())
+                
                     .onAppear {
-                        NotificationManager().requestNotificationAuthorization()
-                        
-                        if firstLaunch {
-                            firstLaunch = false
-                            NotificationManager().toggleNotification()
-                        }
+                        notificationManager.requestNotificationAuthorization()  //请求通知权限
                     }
                 
                 LaunchView()
