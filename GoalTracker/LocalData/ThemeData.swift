@@ -28,7 +28,7 @@ class AppSettings: ObservableObject {
     @Published var appIconSettings: Int = UserDefaults.standard.integer(forKey: "appIcon") {
         didSet {
             UserDefaults.standard.set(self.appIconSettings, forKey: "appIcon")
-            UIApplication.shared.setAlternateIconName(self.appIconSettings == 0 ? nil : "App_\(iconName[self.appIconSettings])" )  //当appIconSetting数值变化时，会触发这个设置；点击第一个时（0）会为nil，使用默认icon
+            UIApplication.shared.setAlternateIconName("App_\(iconName[self.appIconSettings])" )  //当appIconSetting数值变化时，会触发这个设置；点击第一个时（0）会为nil，使用默认icon
         }
     }
 }

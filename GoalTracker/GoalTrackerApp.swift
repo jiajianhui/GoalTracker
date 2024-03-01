@@ -16,17 +16,22 @@ struct GoalTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GoalListView()
-                .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
-                .environmentObject(AppSettings())
-                .onAppear {
-                    NotificationManager().requestNotificationAuthorization()
-                    
-                    if firstLaunch {
-                        firstLaunch = false
-                        NotificationManager().toggleNotification()
+            ZStack {
+                GoalListView()
+                    .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
+                    .environmentObject(AppSettings())
+                    .onAppear {
+                        NotificationManager().requestNotificationAuthorization()
+                        
+                        if firstLaunch {
+                            firstLaunch = false
+                            NotificationManager().toggleNotification()
+                        }
                     }
-                }
+                
+                LaunchView()
+            }
+            
         }
     }
 }
