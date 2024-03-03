@@ -32,6 +32,12 @@ class CoreDataManager {
     //启动方法
     init() {
         container = NSPersistentCloudKitContainer(name: "GoalModel")  //创建容器，名称必须与模型名称一致
+        
+        //widget相关
+        let url = URL.storeURL(for: "group.com.jjh.GoalTracker", databaseName: "GoalModel")
+        let storeDescription = NSPersistentStoreDescription(url: url)
+        container.persistentStoreDescriptions = [storeDescription]
+        
         container.viewContext.automaticallyMergesChangesFromParent = true  //viewContext变化时，自动保存
         container.loadPersistentStores { _, error in
             if let error {
@@ -53,5 +59,16 @@ extension CoreDataManager {
             context.delete(existingGoal)
             try? context.save()
         }
+    }
+}
+
+//widget相关
+public extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("不能创建URL \(appGroup)")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }

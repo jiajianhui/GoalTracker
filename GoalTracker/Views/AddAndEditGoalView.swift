@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct AddAndEditGoalView: View {
 
@@ -48,6 +49,7 @@ struct AddAndEditGoalView: View {
 
                 Spacer()
                 Button {
+                    WidgetCenter.shared.reloadAllTimelines()  //更新widget
                     validSave()
                 } label: {
                     Text(vm.isNew ? "添加" : "保存")
@@ -68,6 +70,7 @@ struct AddAndEditGoalView: View {
         .padding()
         .confirmationDialog("", isPresented: $showDeleteSheet) {
             Button("删除", role: .destructive) {
+                WidgetCenter.shared.reloadAllTimelines()  //更新widget
                 delete()
             }
             Button("取消", role: .cancel) {

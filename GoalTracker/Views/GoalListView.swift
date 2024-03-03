@@ -7,14 +7,7 @@
 
 import SwiftUI
 
-//筛选配置项
-struct FilterConfig: Equatable, Hashable {
-    enum Filter {
-        case all, unfinish, complete
-    }
-    
-    var filter: Filter = .all
-}
+
 
 struct GoalListView: View {
     

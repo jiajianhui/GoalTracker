@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct GoalRowView: View {
     
@@ -209,6 +210,7 @@ extension GoalRowView {
             
             Button {
                 withAnimation(.easeOut) {
+                    WidgetCenter.shared.reloadAllTimelines()  //更新widget
                     vm.save()
                     showDetail.toggle()
                 }

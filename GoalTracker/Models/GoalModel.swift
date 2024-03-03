@@ -35,6 +35,15 @@ class GoalModel: NSManagedObject, Identifiable {
     
 }
 
+//筛选配置项
+struct FilterConfig: Equatable, Hashable {
+    enum Filter {
+        case all, unfinish, complete
+    }
+    
+    var filter: Filter = .all
+}
+
 extension GoalModel {
     
     //查询CoreData
