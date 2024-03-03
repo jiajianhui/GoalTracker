@@ -17,11 +17,16 @@ struct AddAndEditGoalView: View {
     
     @State var validAlert = false
     
+    @State private var placeholder = ""
+    
     var body: some View {
         VStack {
             VStack {
-                TextField(PlaceholderOptions.all.randomElement()!, text: $vm.goal.title, axis: .vertical)
+                TextField(placeholder, text: $vm.goal.title, axis: .vertical)
                     .fontWeight(.medium)
+                    .onAppear {
+                        placeholder = PlaceholderOptions.all.randomElement()!
+                    }
                 LineView()
             }
             .padding(.top, 40)
