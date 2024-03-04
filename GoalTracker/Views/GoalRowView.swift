@@ -128,14 +128,20 @@ extension GoalRowView {
                 .fontWeight(.bold)
                 .lineLimit(showDetail ? 100 : 1)
             Group {
-                if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 == 0 && vm.goal.schedule != 10 {
+                if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule != 10 {  //检查两个日期是否是同一天
                     Text("今天创建")
-                } else if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 != 0 && vm.goal.schedule == 10 {
+                } else if !Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 10 {
                     Text("完成啦🎉")
-                } else if Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0 == 0 && vm.goal.schedule == 10 {
+                } else if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 10 {
                     Text("太高效了吧，1天就完成了😎")
                 } else {
-                    Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                    //计算目标时间与当前日期之间的天数差异（使用了 [.day] 作为第一个参数，表示只关心日期差异的天数），from 参数表示起始日期，而 to 参数表示结束日期。
+                    if (Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) == 0 {
+                        Text("快过去1天啦")
+                    } else {
+                        Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                    }
+                    
                 }
             }
             .font(.system(size: 12, weight: .medium, design: .rounded))
@@ -183,7 +189,7 @@ extension GoalRowView {
                 }
             )
             .gaugeStyle(.accessoryCircularCapacity)
-            .tint(vm.goal.schedule == 10 ? .green : .purple )
+            .tint(.purple)
         }
     }
     
@@ -232,7 +238,7 @@ extension GoalRowView {
     //MARK: - 点击缩放动画
     private func tapAnimation() {
         UIImpactFeedbackGenerator.impact(style: .light)
-        withAnimation(.spring()) {
+        withAnimation(.spring(duration: 0.5)) {
             showDetail.toggle()
         }
         
@@ -245,7 +251,7 @@ extension GoalRowView {
             scale = 0.93
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation(tapAnimation) {
                 scale = 1
             }

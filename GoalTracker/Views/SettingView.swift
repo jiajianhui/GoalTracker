@@ -64,6 +64,7 @@ struct SettingView: View {
                 Color(uiColor: .systemGray6).ignoresSafeArea()
             }
             .navigationTitle("设置")
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showPrivacy) {
                 PrivacyAndAgreementView(showPrivacy: true)
                     .presentationDragIndicator(.visible)
@@ -116,7 +117,7 @@ extension SettingView {
     //邮件反馈函数
     private func emailFeedBack() {
         //获取App名称及版本、iOS版本
-        if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String,
+        if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String,
            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             let iOSVersion = UIDevice.current.systemVersion
             
@@ -167,7 +168,7 @@ extension SettingView {
                     .fontWeight(.medium)
             }
         })
-        .tint(.primary)
+        .toggleStyle(MyToggleStyle())
         .onChange(of: notificationManager.isNotificationEnabled) { newValue in
             notificationManager.toggleNotification()
         }
@@ -230,7 +231,7 @@ extension SettingView {
                 //具体信息
                 HStack(spacing: 4) {
                     //获取app名称
-                    if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+                    if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
                         Text("\(appName)")
                     } else {
                         

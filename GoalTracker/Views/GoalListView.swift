@@ -48,7 +48,7 @@ struct GoalListView: View {
     var body: some View {
         NavigationStack {
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 10) {
                     if goals.isEmpty && num == 0 {
                         EmptyGoalView(goalModel: $selectedGoal)
