@@ -138,7 +138,7 @@ extension PurchaseView {
     private var proHeader: some View {
         VStack {
             Image("icon01")
-            Text("恭喜你已成为Pro🎉")
+            Text("恭喜升级为Pro🎉")
                 .font(.system(size: 28, weight: .bold))
         }
     }

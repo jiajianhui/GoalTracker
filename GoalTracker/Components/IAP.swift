@@ -24,7 +24,7 @@ struct IAP: View {
                         .scaledToFit()
                         .frame(width: 100)
                     
-                    ProInfo(title: "恭喜你已成为Pro🎉", subTitle: "")
+                    ProInfo(title: "恭喜升级为Pro🎉", subTitle: "")
                     
                     showProBto
                 }
