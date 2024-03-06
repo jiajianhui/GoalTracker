@@ -9,13 +9,13 @@ import Foundation
 
 struct PlaceholderOptions {
     static let all: [String] = [
-        "例如 “考驾照”",
-        "例如 “学习法语”",
-        "例如 “上架一款App”",
-        "例如 “读完10本书”",
-        "例如 “制作个人Vlog”",
-        "例如 “学习滑雪”",
-        "例如 “带父母出去旅游”"
+        NSLocalizedString("例如 “考驾照”", comment: "11"),
+        NSLocalizedString("例如 “学习法语”", comment: "11"),
+        NSLocalizedString("例如 “上架一款App”", comment: "11"),
+        NSLocalizedString("例如 “读完10本书”", comment: "11"),
+        NSLocalizedString("例如 “学习滑雪”", comment: "11"),
+        NSLocalizedString("例如 “带父母出去旅游”", comment: "11"),
+        NSLocalizedString("例如 “上架一款App”", comment: "11")
     ]
     
 }

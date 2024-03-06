@@ -119,7 +119,7 @@ extension PurchaseView {
         VStack(spacing: -10) {
             Image("icon01")
             HStack {
-                Text("GoalTracker")
+                Text("GoalCraft")
                     .fontWeight(.bold)
                 Text("Pro")
                     .fontWeight(.bold)
@@ -146,9 +146,9 @@ extension PurchaseView {
     //Pro优势
     private var purchaseInfo: some View {
         VStack(spacing: 20) {
-            Advantage(title: "创建无限目标", subTitle: "保持创造，提高动力", icon: "checkmark.seal.fill")
-            Advantage(title: "设置自定义图标", subTitle: "选择你最喜欢的图标，后续会不断更新", icon: "checkmark.seal.fill")
-            Advantage(title: "支持我的后续开发", subTitle: "你的支持是我最大的动力", icon: "checkmark.seal.fill")
+            Advantage(title: NSLocalizedString("创建无限目标", comment: "1"), subTitle:  NSLocalizedString("保持创造，提高动力", comment: "1"), icon: "checkmark.seal.fill")
+            Advantage(title: NSLocalizedString("设置自定义图标", comment: "2"), subTitle: NSLocalizedString("选择你最喜欢的图标，展示你的风格", comment: "2"), icon: "checkmark.seal.fill")
+            Advantage(title: NSLocalizedString("支持我的后续开发", comment: "3"), subTitle: NSLocalizedString("你的支持是我最大的动力", comment: "3"), icon: "checkmark.seal.fill")
         }
     }
     
@@ -196,4 +196,5 @@ extension PurchaseView {
 
 #Preview {
     PurchaseView()
+        .environment(\.locale, Locale.init(identifier: "en"))
 }

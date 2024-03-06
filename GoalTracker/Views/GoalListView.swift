@@ -127,6 +127,15 @@ struct GoalListView: View {
 //MARK: - 视图组件
 extension GoalListView {
     
+    //获取月份函数
+    private func getMonth() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+
+        return dateFormatter.string(from: Date())
+
+    }
+    
     //MARK: toolbar
     private var logo: some View {
         HStack {
@@ -139,9 +148,17 @@ extension GoalListView {
     
     private var date: some View {
         HStack(spacing: 4) {
-            Text("\(Calendar.current.component(.month, from: Date()))月")
-            Text("\(Calendar.current.component(.day, from: Date()))日")
-                .fontWeight(.heavy)
+            if Locale.current.language.languageCode == "en" {
+                Text(getMonth())
+                    .font(.system(size: 20, design: .serif))
+                Text("\(Calendar.current.component(.day, from: Date()))")
+                    .fontWeight(.heavy)
+            } else {
+                Text("\(Calendar.current.component(.month, from: Date()))月")
+                Text("\(Calendar.current.component(.day, from: Date()))日")
+                    .fontWeight(.heavy)
+            }
+            
         }
         .font(.system(size: 20))
         .foregroundStyle(Color.primary)

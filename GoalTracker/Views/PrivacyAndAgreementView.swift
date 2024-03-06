@@ -23,11 +23,11 @@ struct PrivacyAndAgreementView: View {
                         } else {
                             
                         }
-                        PrivacyRowView(title: "1. 数据使用范围", content: "所有数据仅供用户自己查看，应用不会分享用户产品数据给任何第三方机构。")
-                        PrivacyRowView(title: "2. 信息披露", content: "本软件不会将您的信息披露给任何第三方机构。")
-                        PrivacyRowView(title: "3. 信息存储", content: "本软件收集的有关您的信息和资料将保存在您的设备本地。")
-                        PrivacyRowView(title: "4. 使用条款的变更", content: "当有新的使用条款跟新的时候，我们会在这个页面更新内容，这些条款更新之后会立即生效。")
-                        PrivacyRowView(title: "5. 联系我们", content: "如果您对产品及隐私政策有任何疑问或建议，请随时通过设置页的意见反馈联系到我。")
+                        PrivacyRowView(title: NSLocalizedString("1. 数据使用范围", comment: "0"), content: NSLocalizedString("所有数据仅供用户自己查看，应用不会分享用户产品数据给任何第三方机构。", comment: "0"))
+                        PrivacyRowView(title: NSLocalizedString("2. 信息披露", comment: "0"), content: NSLocalizedString("本软件不会将您的信息披露给任何第三方机构。", comment: "0"))
+                        PrivacyRowView(title: NSLocalizedString("3. 信息存储", comment: "0"), content: NSLocalizedString("本软件收集的有关您的信息和资料将保存在您的设备本地和iCloud中", comment: "0"))
+                        PrivacyRowView(title: NSLocalizedString("4. 使用条款的变更", comment: "0"), content: NSLocalizedString("当有新的使用条款跟新的时候，我们会在这个页面更新内容，这些条款更新之后会立即生效。", comment: "0"))
+                        PrivacyRowView(title: NSLocalizedString("5. 联系我们", comment: "0"), content: NSLocalizedString("如果您对产品及隐私政策有任何疑问或建议，请随时通过设置页的意见反馈联系到我。", comment: "0"))
                         
                     }
                 } else {
@@ -35,11 +35,11 @@ struct PrivacyAndAgreementView: View {
                         if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
                             Text("在购买 Pro 之前，你可以阅读 App的使用协议来确定更多的信息。")
                             
-                            PrivacyRowView(title: "1. App 功能", content: "\(appName) 是一款关注和管理个人目标或任务的工具，可以在 iPhone，iPad 和 Mac 上下载使用。")
-                            PrivacyRowView(title: "2. 免费版本", content: "\(appName) 免费版本最多可添加3个目标或任务，如果你需要添加更多目标和任务，可以订阅Pro版本，全平台一次性付费，可在多个平台里恢复购买使用。")
-                            PrivacyRowView(title: "3. 订阅 Pro", content: "具体订阅可以参考付费页面，付费采取一次性付费机制，一次付费免费使用所有功能，永远免费升级。")
-                            PrivacyRowView(title: "4. 使用条款的变更", content: "当有新的使用条款跟新的时候，我们会在这个页面更新内容，这些条款更新之后会立即生效。")
-                            PrivacyRowView(title: "5. 联系我们", content: "如果您对产品及隐私政策有任何疑问或建议，请随时通过设置页的意见反馈联系到我。")
+                            PrivacyRowView(title: NSLocalizedString("1. App 功能", comment: "0"), content: NSLocalizedString("GoalCraft 是一款关注和管理个人目标或任务的工具，可以在 iPhone，iPad 和 Mac 上下载使用。", comment: "0"))
+                            PrivacyRowView(title: NSLocalizedString("2. 免费版本", comment: "0"), content: NSLocalizedString("GoalCraft 免费版本最多可添加3个目标或任务，如果你需要添加更多目标和任务，可以订阅Pro版本，全平台一次性付费，可在多个平台里恢复购买使用。", comment: "0"))
+                            PrivacyRowView(title: NSLocalizedString("3. 订阅 Pro", comment: "0"), content: NSLocalizedString("具体订阅可以参考付费页面，付费采取一次性付费机制，一次付费免费使用所有功能，永远免费升级。", comment: "0"))
+                            PrivacyRowView(title: NSLocalizedString("4. 使用条款的变更", comment: "0"), content: NSLocalizedString("当有新的使用条款跟新的时候，我们会在这个页面更新内容，这些条款更新之后会立即生效。", comment: "0"))
+                            PrivacyRowView(title: NSLocalizedString("5. 联系我们", comment: "0"), content: NSLocalizedString("如果您对产品及隐私政策有任何疑问或建议，请随时通过设置页的意见反馈联系到我。", comment: "0"))
                         } else {
                             
                         }

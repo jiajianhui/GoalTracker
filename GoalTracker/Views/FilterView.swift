@@ -12,7 +12,11 @@ struct FilterView: View {
     //从数据库拿数据
     var goals: FetchedResults<GoalModel>
     
-    let filterName: [String] = ["全部", "进行中", "已完成"]
+    let filterName: [String] = [
+        NSLocalizedString("全部", comment: "Comment 1"),
+        NSLocalizedString("进行中", comment: "Comment 2"),
+        NSLocalizedString("已完成", comment: "Comment 3")
+    ]
     
     //筛选配置项
     @Binding var num: Int 

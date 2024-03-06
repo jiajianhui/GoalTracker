@@ -16,10 +16,10 @@ let iconName: [String] = [
     "icon04"
 ]
 let iconTitle: [String] = [
-    "默认",
-    "钛元素",
-    "奶油",
-    "抽象"
+    NSLocalizedString("默认", comment: "00"),
+    NSLocalizedString("钛元素", comment: "00"),
+    NSLocalizedString("奶油", comment: "00"),
+    NSLocalizedString("抽象", comment: "00")
 ]
 
 //MARK: - icon选择设置

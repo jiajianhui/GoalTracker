@@ -24,7 +24,7 @@ struct IAP: View {
                         .scaledToFit()
                         .frame(width: 100)
                     
-                    ProInfo(title: "恭喜升级为Pro🎉", subTitle: "")
+                    ProInfo(title: NSLocalizedString("恭喜升级为Pro🎉", comment: "pro"), subTitle: "")
                     
                     showProBto
                 }
@@ -38,7 +38,7 @@ struct IAP: View {
                 if let price = product.price, product.isLocked {
                     VStack(spacing: 20) {
                         header
-                        ProInfo(title: "开启新高度", subTitle: "解锁全部功能，保持创造，提高动力")
+                        ProInfo(title: NSLocalizedString("开启新高度", comment: "pro"), subTitle: NSLocalizedString("解锁全部功能，保持创造，提高动力", comment: "proSubTitle"))
                         VStack(spacing: 14) {
                             Button {
                                 if let product = store.product(for: product.id) {
@@ -101,7 +101,7 @@ struct ProInfo: View {
 extension IAP {
     private var header: some View {
         HStack(spacing: 6) {
-            Text("GoalTracker")
+            Text("GoalCraft")
                 .fontWeight(.medium)
             Text("Pro")
                 .fontWeight(.bold)
@@ -146,4 +146,5 @@ extension IAP {
 
 #Preview {
     IAP()
+        .environment(\.locale, Locale(identifier: "en"))
 }

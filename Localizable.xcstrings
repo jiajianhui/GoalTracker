@@ -1,0 +1,850 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@  一次购买，永久持有" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ One-time purchase, permanent ownership"
+          }
+        }
+      }
+    },
+    "%@ 尊重并保护所有使用服务用户的个人隐私和数据隐私。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本软件不会将这些信息对外披露或向第三方提供。本软件会不时更新本隐私权政策。您在同意本软件服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本软件服务使用协议不可分割的一部分。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Respect and protect the personal privacy and data privacy of all users of the service. Unless otherwise specified in this privacy policy, this software will not disclose or provide this information to third parties without your prior permission. This software will update this privacy policy from time to time. When you agree to the terms of service of this software, it is deemed that you have agreed to all the contents of this privacy policy. This privacy policy is an integral part of the terms of service of this software and cannot be separated."
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld%%" : {
+
+    },
+    "%lld日" : {
+
+    },
+    "%lld月" : {
+
+    },
+    "©" : {
+
+    },
+    "1. App 功能" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. App Features"
+          }
+        }
+      }
+    },
+    "1. 数据使用范围" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Data Usage Scope"
+          }
+        }
+      }
+    },
+    "2. 信息披露" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Information Disclosure"
+          }
+        }
+      }
+    },
+    "2. 免费版本" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Free Version"
+          }
+        }
+      }
+    },
+    "3. 信息存储" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Data Storage"
+          }
+        }
+      }
+    },
+    "3. 订阅 Pro" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Subscribe to Pro"
+          }
+        }
+      }
+    },
+    "4. 使用条款的变更" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Changes to Terms of Use"
+          }
+        }
+      }
+    },
+    "5. 联系我们" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5. Contact Us"
+          }
+        }
+      }
+    },
+    "2024" : {
+
+    },
+    "Designed by JianHui" : {
+
+    },
+    "Goal List" : {
+
+    },
+    "GoalCraft" : {
+
+    },
+    "GoalCraft 免费版本最多可添加3个目标或任务，如果你需要添加更多目标和任务，可以订阅Pro版本，全平台一次性付费，可在多个平台里恢复购买使用。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GoalCraft's free version allows a maximum of 3 goals or tasks. If you need to add more goals and tasks, you can subscribe to the Pro version, with a one-time payment that covers all platforms and allows you to restore purchases across multiple platforms."
+          }
+        }
+      }
+    },
+    "GoalCraft 是一款关注和管理个人目标或任务的工具，可以在 iPhone，iPad 和 Mac 上下载使用。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GoalCraft is a tool for focusing on and managing personal goals or tasks, available for download and use on iPhone, iPad, and Mac."
+          }
+        }
+      }
+    },
+    "hello" : {
+
+    },
+    "iCloud同步" : {
+
+    },
+    "Pro" : {
+
+    },
+    "今天创建" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Created today"
+          }
+        }
+      }
+    },
+    "任务主题" : {
+
+    },
+    "你的支持是我最大的动力" : {
+      "comment" : "3",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your support is my greatest motivation"
+          }
+        }
+      }
+    },
+    "使用协议" : {
+      "comment" : "term",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms"
+          }
+        }
+      }
+    },
+    "例如 “上架一款App”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Launch an App.\""
+          }
+        }
+      }
+    },
+    "例如 “学习法语”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Learn French.\""
+          }
+        }
+      }
+    },
+    "例如 “学习滑雪”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Learn Skiing.\""
+          }
+        }
+      }
+    },
+    "例如 “带父母出去旅游”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Take Parents on a Trip.\""
+          }
+        }
+      }
+    },
+    "例如 “考驾照”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Driver's License Exam.\""
+          }
+        }
+      }
+    },
+    "例如 “读完10本书”" : {
+      "comment" : "11",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example, \"Read 10 Books.\""
+          }
+        }
+      }
+    },
+    "保存" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "保持创造，提高动力" : {
+      "comment" : "1",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay creative, boost motivation"
+          }
+        }
+      }
+    },
+    "全部" : {
+      "comment" : "Comment 1",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "具体订阅可以参考付费页面，付费采取一次性付费机制，一次付费免费使用所有功能，永远免费升级。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For specific subscription details, please refer to the payment page. The subscription follows a one-time payment model, providing unrestricted access to all features with a single payment and ensuring free upgrades indefinitely."
+          }
+        }
+      }
+    },
+    "分享给朋友" : {
+      "comment" : "share",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share with Friends"
+          }
+        }
+      }
+    },
+    "创建你的目标或任务，持续关注和追踪它们，保持创造，提高动力。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set your goals or tasks, keep a continuous focus on them, and track their progress. Stay creative, boost motivation."
+          }
+        }
+      }
+    },
+    "创建无限目标" : {
+      "comment" : "1",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create limitless goals"
+          }
+        }
+      }
+    },
+    "创建日期" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creation date"
+          }
+        }
+      }
+    },
+    "删除" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "取消" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "在购买 Pro 之前，你可以阅读 App的使用协议来确定更多的信息。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Before purchasing Pro, you can read the App's terms of use to find more information."
+          }
+        }
+      }
+    },
+    "太高效了吧，1天就完成了😎" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "That's incredibly efficient! Well done, you completed it in just one day! 😎"
+          }
+        }
+      }
+    },
+    "奶油" : {
+      "comment" : "00",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Butter"
+          }
+        }
+      }
+    },
+    "如果您对产品及隐私政策有任何疑问或建议，请随时通过设置页的意见反馈联系到我。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you have any questions or suggestions regarding the product and privacy policy, please feel free to contact me through the feedback option on the settings page."
+          }
+        }
+      }
+    },
+    "完成啦🎉" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations! 🎉 Well done!"
+          }
+        }
+      }
+    },
+    "已完成" : {
+      "comment" : "Comment 3",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed"
+          }
+        }
+      }
+    },
+    "已完成 %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed %lld"
+          }
+        }
+      }
+    },
+    "已过去 %lld 天 " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It has been %lld days."
+          }
+        }
+      }
+    },
+    "开启新高度" : {
+      "comment" : "pro",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reach New Heights."
+          }
+        }
+      }
+    },
+    "当前进度" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current progress"
+          }
+        }
+      }
+    },
+    "当有新的使用条款跟新的时候，我们会在这个页面更新内容，这些条款更新之后会立即生效。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When new terms of service are updated, we will refresh the content on this page. These updated terms will take effect immediately."
+          }
+        }
+      }
+    },
+    "快过去1天啦" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's been one day already!"
+          }
+        }
+      }
+    },
+    "总共 %lld" : {
+
+    },
+    "恢复购买" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RePurchase"
+          }
+        }
+      }
+    },
+    "恭喜升级为Pro🎉" : {
+      "comment" : "pro",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro Upgrade 🎉"
+          }
+        }
+      }
+    },
+    "意见反馈" : {
+      "comment" : "feedback",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        }
+      }
+    },
+    "所有数据仅供用户自己查看，应用不会分享用户产品数据给任何第三方机构。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All data is for the user's private viewing only. The app will not share user product data with any third-party organizations."
+          }
+        }
+      }
+    },
+    "抽象" : {
+      "comment" : "00",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abstract"
+          }
+        }
+      }
+    },
+    "换个图标" : {
+      "comment" : "icon",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Icon"
+          }
+        }
+      }
+    },
+    "支持我的后续开发" : {
+      "comment" : "3",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support future development."
+          }
+        }
+      }
+    },
+    "暂无已完成的目标" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No completed goals at the moment."
+          }
+        }
+      }
+    },
+    "暂无进行中的目标" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No ongoing goals at the moment."
+          }
+        }
+      }
+    },
+    "更新进度" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update on progress"
+          }
+        }
+      }
+    },
+    "本软件不会将您的信息披露给任何第三方机构。" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This software will not disclose your information to any third-party organizations."
+          }
+        }
+      }
+    },
+    "本软件收集的有关您的信息和资料将保存在您的设备本地和iCloud中" : {
+      "comment" : "0",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The information and data collected by this software about you will be stored locally on your device and in iCloud."
+          }
+        }
+      }
+    },
+    "查看详情" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View Details"
+          }
+        }
+      }
+    },
+    "每日回顾提醒" : {
+      "comment" : "notification",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily Reminder"
+          }
+        }
+      }
+    },
+    "添加" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "版本 %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        }
+      }
+    },
+    "确定要删除吗？此操作无法撤销" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete? This action cannot be undone."
+          }
+        }
+      }
+    },
+    "立即开始" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Now"
+          }
+        }
+      }
+    },
+    "立即解锁" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock Now"
+          }
+        }
+      }
+    },
+    "给个好评" : {
+      "comment" : "rate",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate Us"
+          }
+        }
+      }
+    },
+    "编辑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
+    "解锁全部功能，保持创造，提高动力" : {
+      "comment" : "proSubTitle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock all features, stay creative, boost motivation"
+          }
+        }
+      }
+    },
+    "设置" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setting"
+          }
+        }
+      }
+    },
+    "设置自定义图标" : {
+      "comment" : "2",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Custom Icon"
+          }
+        }
+      }
+    },
+    "语言" : {
+      "comment" : "language",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        }
+      }
+    },
+    "返回" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "进度" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress"
+          }
+        }
+      }
+    },
+    "进行中" : {
+      "comment" : "Comment 2",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Progress"
+          }
+        }
+      }
+    },
+    "选择你最喜欢的图标，展示你的风格" : {
+      "comment" : "2",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pick an icon, show your style"
+          }
+        }
+      }
+    },
+    "钛元素" : {
+      "comment" : "00",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titanium Element"
+          }
+        }
+      }
+    },
+    "隐私政策" : {
+      "comment" : "privacy",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "默认" : {
+      "comment" : "00",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

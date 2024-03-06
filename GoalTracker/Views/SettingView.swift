@@ -28,17 +28,22 @@ struct SettingView: View {
     //
     @StateObject var notificationManager = NotificationManager()
     
+    //获取语言
+    let currentLanguage = Locale.current.localizedString(forLanguageCode: Locale.current.language.languageCode?.identifier ?? "")
+    
     
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
+                    
                     IAP()
                     
                     VStack(spacing: 32) {
                         changeIcon
 //                        iCloudSync
                         notificationBtn
+                        languageBtn
                     }
                     .cardStyle()
                     
@@ -143,7 +148,7 @@ extension SettingView {
             showChangeIcon.toggle()
         } label: {
             //动态切换info
-            SettingRowView(icon: "图标", title: "换个图标", info: "\(iconTitle[appSettings.appIconSettings])", showInfo: true)
+            SettingRowView (icon: "图标", title: NSLocalizedString("换个图标", comment: "icon"), info: "\(iconTitle[appSettings.appIconSettings])", showInfo: true)
         }
     }
     
@@ -164,7 +169,7 @@ extension SettingView {
         Toggle(isOn: $notificationManager.isNotificationEnabled, label: {
             HStack {
                 Image("通知")
-                Text("每日回顾提醒")
+                Text(NSLocalizedString("每日回顾提醒", comment: "notification"))
                     .fontWeight(.medium)
             }
         })
@@ -174,19 +179,26 @@ extension SettingView {
         }
     }
     
+    //更改语言
+    private var languageBtn: some View {
+        Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+            SettingRowView(icon: "语言", title: NSLocalizedString("语言", comment: "language"), info: currentLanguage!, showInfo: true)
+        }
+    }
+    
     //好评按钮
     private var starBtn: some View {
         Button {
             star()
         } label: {
-            SettingRowView(icon: "好评", title: "给个好评", showInfo: false)
+            SettingRowView(icon: "好评", title: NSLocalizedString("给个好评", comment: "rate"), showInfo: false)
         }
     }
     
     //分享按钮
     private var shareBtn: some View {
         ShareLink(item: url) {
-            SettingRowView(icon: "分享", title: "分享给朋友", showInfo: false)
+            SettingRowView(icon: "分享", title: NSLocalizedString("分享给朋友", comment: "share"), showInfo: false)
         }
     }
     
@@ -195,7 +207,7 @@ extension SettingView {
         Button {
             emailFeedBack()
         } label: {
-            SettingRowView(icon: "反馈", title: "意见反馈", showInfo: false)
+            SettingRowView(icon: "反馈", title: NSLocalizedString("意见反馈", comment: "feedback"), showInfo: false)
         }
     }
     
@@ -204,7 +216,7 @@ extension SettingView {
         Button {
             showPrivacy.toggle()
         } label: {
-            SettingRowView(icon: "隐私", title: "隐私政策", showInfo: false)
+            SettingRowView(icon: "隐私", title: NSLocalizedString("隐私政策", comment: "privacy"), showInfo: false)
         }
     }
     
@@ -213,7 +225,7 @@ extension SettingView {
         Button {
             showAgreement.toggle()
         } label: {
-            SettingRowView(icon: "协议", title: "使用协议", showInfo: false)
+            SettingRowView(icon: "协议", title: NSLocalizedString("使用协议", comment: "term"), showInfo: false)
         }
     }
     

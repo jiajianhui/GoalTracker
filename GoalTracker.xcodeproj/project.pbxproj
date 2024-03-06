@@ -16,6 +16,7 @@
 		625718C42B834A8200D4042D /* PrivacyAndAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718C32B834A8200D4042D /* PrivacyAndAgreementView.swift */; };
 		625718C62B8445B600D4042D /* EmptyGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625718C52B8445B600D4042D /* EmptyGoalView.swift */; };
 		625A9A442B95733300740AFA /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625A9A432B95733300740AFA /* ToggleView.swift */; };
+		626FA3B32B984C6B00C7E5C9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 626FA3B22B984C6B00C7E5C9 /* Localizable.xcstrings */; };
 		62CD6B572B6CA5CE00A2CBC2 /* GoalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */; };
 		62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */; };
 		62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD6B5D2B6CA5CF00A2CBC2 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		625718C52B8445B600D4042D /* EmptyGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGoalView.swift; sourceTree = "<group>"; };
 		625A9A432B95733300740AFA /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		625D85C42B7BB20C008D9946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		626FA3B22B984C6B00C7E5C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		62CD6B532B6CA5CE00A2CBC2 /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD6B562B6CA5CE00A2CBC2 /* GoalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTrackerApp.swift; sourceTree = "<group>"; };
 		62CD6B5A2B6CA5CF00A2CBC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		62CD6B4A2B6CA5CD00A2CBC2 = {
 			isa = PBXGroup;
 			children = (
+				626FA3B22B984C6B00C7E5C9 /* Localizable.xcstrings */,
 				62CD6B552B6CA5CE00A2CBC2 /* GoalTracker */,
 				62CD6B542B6CA5CE00A2CBC2 /* Products */,
 			);
@@ -238,11 +241,12 @@
 			};
 			buildConfigurationList = 62CD6B4E2B6CA5CD00A2CBC2 /* Build configuration list for PBXProject "GoalTracker" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 62CD6B4A2B6CA5CD00A2CBC2;
 			productRefGroup = 62CD6B542B6CA5CE00A2CBC2 /* Products */;
@@ -261,6 +265,7 @@
 			files = (
 				62CD72B72B91C29500063D4C /* Launch Screen.storyboard in Resources */,
 				62CD6B5E2B6CA5CF00A2CBC2 /* Preview Assets.xcassets in Resources */,
+				626FA3B32B984C6B00C7E5C9 /* Localizable.xcstrings in Resources */,
 				62CD6B5B2B6CA5CF00A2CBC2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
