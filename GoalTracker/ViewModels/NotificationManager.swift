@@ -37,8 +37,8 @@ class NotificationManager: ObservableObject {
     //每天通知函数
     func dailyNotification() {
         let content = UNMutableNotificationContent()
-        content.title = "今日回顾"
-        content.body = "查看你的目标进度"
+        content.title = NSLocalizedString("今日回顾", comment: "notificationTitle")
+        content.body = NSLocalizedString("查看你的目标进度", comment: "notificationSubTitle")
         content.sound = UNNotificationSound.default
         
         //设置触发通知的时间

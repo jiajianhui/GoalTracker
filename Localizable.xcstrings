@@ -183,6 +183,17 @@
         }
       }
     },
+    "今日回顾" : {
+      "comment" : "notificationTitle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today's Review"
+          }
+        }
+      }
+    },
     "任务主题" : {
 
     },
@@ -631,6 +642,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The information and data collected by this software about you will be stored locally on your device and in iCloud."
+          }
+        }
+      }
+    },
+    "查看你的目标进度" : {
+      "comment" : "notificationSubTitle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your goal progress"
           }
         }
       }
