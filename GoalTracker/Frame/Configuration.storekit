@@ -13,6 +13,11 @@
           "description" : "",
           "displayName" : "",
           "locale" : "zh_CN"
+        },
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
         }
       ],
       "productID" : "com.jjh.GoalTracker.Pro",
