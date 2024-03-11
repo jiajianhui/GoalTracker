@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct PurchaseView: View {
     
@@ -17,60 +18,62 @@ struct PurchaseView: View {
     //展示隐私政策
     @State private var showAgreement: Bool = false
     
+    @AppStorage("isPurchased") var isPurchased: Bool = false
+    
     //1、 创建Store实体
     @StateObject var store = Store()
     
     var body: some View {
         
         //2、 依次读取已经存在的所有内购选项
-        ForEach(store.allProducts, id: \.self) { product in
-            if let price = product.price {
-                VStack {
-                    VStack(spacing: 50) {
-                        if store.purchased {
-                            proHeader
+        ForEach(store.storeProducts) { product in
+            VStack {
+                VStack(spacing: 50) {
+                    if !store.purchasedCourses.isEmpty {
+                        proHeader
+                    } else {
+                        purchaseHeader
+                    }
+                    purchaseInfo
+                    
+                    VStack(spacing: 20) {
+                        if !store.purchasedCourses.isEmpty {
+                            proBtn
                         } else {
-                            purchaseHeader
-                        }
-                        purchaseInfo
-                        
-                        VStack(spacing: 20) {
-                            if store.purchased {
-                                proBtn
-                            } else {
-                                Button {
-                                    if let product = store.product(for: product.id) {
-                                        store.purchaseProduct(product)  //Store中的购买函数
-                                    }
-                                } label: {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.primary)
-                                        .frame(height: 64)
-                                        .overlay {
-                                            VStack(spacing: 4) {
-                                                Text("立即解锁")
-                                                    .fontWeight(.bold)
-                                                Text("\(price)  一次购买，永久持有")
-                                                    .font(.system(size: 12))
-                                                    .opacity(0.8)
-                                            }
-                                            .foregroundStyle(Color("btnTextColor"))
-                                        }
+                            Button {
+                                Task {
+                                    try await store.purchase(product)
                                 }
+                            } label: {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(Color.primary)
+                                    .frame(height: 64)
+                                    .overlay {
+                                        VStack(spacing: 4) {
+                                            Text("立即解锁")
+                                                .fontWeight(.bold)
+                                            Text("\(product.displayPrice)  一次购买，永久持有")
+                                                .font(.system(size: 12))
+                                                .opacity(0.8)
+                                        }
+                                        .foregroundStyle(Color("btnTextColor"))
+                                    }
                             }
-                            
-                            bottomInfo
-                            
                         }
+                        
+                        bottomInfo
+                        
                     }
                 }
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity)
             }
-        }
-        //3、 该视图出现时，刷新内购状态
-        .onAppear {
-            store.loadStoredPurchases()
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
+            
+            .onChange(of: store.purchasedCourses) { _ in
+                Task {
+                    isPurchased = (try? await store.isPurchased(product)) ?? false
+                }
+            }
         }
         .sheet(isPresented: $showPrivacy, content: {
             PrivacyAndAgreementView(showPrivacy: true)
@@ -183,7 +186,9 @@ extension PurchaseView {
                 Text("隐私政策")
             }
             Button {
-                store.restorePurchases()
+                Task {
+                    try? await AppStore.sync()
+                }
             } label: {
                 Text("恢复购买")
             }

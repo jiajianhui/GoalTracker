@@ -43,6 +43,8 @@ struct GoalListView: View {
     
     //筛选配置项
     @State private var num: Int = 0
+    
+    @AppStorage("isPurchased") var isPurchased: Bool = false
 
 
     var body: some View {
@@ -116,9 +118,7 @@ struct GoalListView: View {
             PurchaseView()
                 .presentationDragIndicator(.visible)
         })
-        .onAppear {
-            store.loadStoredPurchases()
-        }
+        
         
 
     }
@@ -196,7 +196,7 @@ extension GoalListView {
     //MARK: 添加按钮
     private var plusBtn: some View {
         Button {
-            if store.purchased || goals.count < 3 {
+            if isPurchased || goals.count < 3 {
                 UIImpactFeedbackGenerator.impact(style: .light)
                 selectedGoal = GoalModel.empty()
                 

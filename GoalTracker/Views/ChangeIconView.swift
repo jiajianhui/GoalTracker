@@ -14,6 +14,8 @@ struct ChangeIconView: View {
     //创建Store实体
     @StateObject var store = Store()
     
+    @AppStorage("isPurchased") var isPurchased: Bool = false
+    
     //展示购买页
     @State private var showPurchase: Bool = false
     
@@ -25,7 +27,7 @@ struct ChangeIconView: View {
                         Button {
                             
                             //如果是会员，或者是第一个图标，则允许执行更换icon的操作
-                            if store.purchased || i == 0 {
+                            if isPurchased || i == 0 {
                                 appSettings.appIconSettings = i
                             } else {
                                 showPurchase.toggle()
@@ -48,7 +50,7 @@ struct ChangeIconView: View {
                                     
                                 } else {
                                     //如果是会员，则不展示该标志
-                                    if store.purchased {
+                                    if !store.purchasedCourses.isEmpty {
                                         
                                     } else {
                                         proIcon
@@ -73,7 +75,7 @@ struct ChangeIconView: View {
                     .presentationDragIndicator(.visible)
             })
             .onAppear {
-                store.loadStoredPurchases()
+//                store.loadStoredPurchases()
             }
         }
     }
