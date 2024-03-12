@@ -29,7 +29,7 @@ struct PurchaseView: View {
         ForEach(store.storeProducts) { product in
             VStack {
                 VStack(spacing: 50) {
-                    if !store.purchasedCourses.isEmpty {
+                    if isPurchased {
                         proHeader
                     } else {
                         purchaseHeader
@@ -37,7 +37,7 @@ struct PurchaseView: View {
                     purchaseInfo
                     
                     VStack(spacing: 20) {
-                        if !store.purchasedCourses.isEmpty {
+                        if isPurchased {
                             proBtn
                         } else {
                             Button {

@@ -50,7 +50,7 @@ struct ChangeIconView: View {
                                     
                                 } else {
                                     //如果是会员，则不展示该标志
-                                    if !store.purchasedCourses.isEmpty {
+                                    if isPurchased {
                                         
                                     } else {
                                         proIcon
