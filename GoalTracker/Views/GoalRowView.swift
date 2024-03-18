@@ -12,7 +12,7 @@ struct GoalRowView: View {
     @ObservedObject var vm: AddAndEditViewModel
     
     //是否展示细节
-    @State var showDetail = false
+    @State var showDetail = true
     
     var screenWidth = UIScreen.main.bounds.width
     
@@ -23,6 +23,11 @@ struct GoalRowView: View {
     
     //点击时的缩放变量
     @State private var scale: CGFloat = 1
+    
+    //picker
+    let pickerOptions: [String] = ["百分比", "数字"]
+    @State var pickerValue = 0
+    
     
     var body: some View {
         VStack(spacing: 20) {
@@ -36,12 +41,29 @@ struct GoalRowView: View {
             
             if showDetail {
                 VStack(spacing: 19) {
+//                    LineView()
+//                    date
                     LineView()
-                    date
+                    HStack {
+                        Text("目标单位")
+                        Spacer()
+                        Picker("1", selection: $vm.goal.pickerValue) {
+                            ForEach(pickerOptions.indices, id: \.self) { index in
+                                Text(pickerOptions[index])
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .frame(width: 140)
+                    }
                     LineView()
                     gauge
                     LineView()
-                    Stepper("更新进度", value: $vm.goal.schedule, in: 0...10, step: 1)
+                    if vm.goal.pickerValue == 0 {
+                        Stepper("更新进度", value: $vm.goal.schedule, in: 0...10, step: 1)
+                    } else {
+                        Stepper("更新进度", value: $vm.goal.scheduleNum, in: 0...vm.goal.scheduleNum, step: 1)
+                    }
+                    
                     LineView()
                     btns
                 }
@@ -176,21 +198,55 @@ extension GoalRowView {
     
     private var gauge: some View {
         HStack {
-            Text("当前进度")
-            Spacer()
-            Gauge(
-                value: Double(vm.goal.schedule) / 10,  //将schedule转为小数，以供Gauge使用——计算属性
-                label: {
-                    Text("进度")
-                },
-                currentValueLabel: {
-                    Text("\(vm.goal.schedule * 10)%") //将schedule转为百分比——计算属性
-                        .font(.system(size: 16, weight: .medium))
-                }
-            )
-            .gaugeStyle(.accessoryCircularCapacity)
-            .tint(.purple)
+            if vm.goal.pickerValue == 0 {
+//                Text("当前进度")
+//                Spacer()
+//                Gauge(
+//                    value: Double(vm.goal.schedule) / 10,  //将schedule转为小数，以供Gauge使用——计算属性
+//                    label: {
+//                        Text("进度")
+//                    },
+//                    currentValueLabel: {
+//                        Text("\(vm.goal.schedule * 10)%") //将schedule转为百分比——计算属性
+//                            .font(.system(size: 16, weight: .medium))
+//                    }
+//                )
+//                .gaugeStyle(.accessoryCircularCapacity)
+//                .tint(.purple)
+                Text("设置目标")
+                Spacer()
+                TextField("", text: .constant("100%"))
+                    .disabled(true)
+                    .opacity(0.6)
+                    .padding(.horizontal, 10)
+                    .frame(width: 90)
+                    .background {
+                        RoundedRectangle(cornerRadius: 12)
+                            .frame(height: 40)
+                            .opacity(0.05)
+                    }
+            } else {
+                Text("设置目标")
+                Spacer()
+                TextField("", text: Binding(
+                    get: {
+                    "\(vm.goal.scheduleNum)"
+                    }, set: { newValue in
+                        if let intValue = Int(newValue) {
+                            vm.goal.scheduleNum = intValue
+                        }
+                    }))
+                    .padding(.horizontal, 10)
+                    .frame(width: 90)
+                    .background {
+                        RoundedRectangle(cornerRadius: 12)
+                            .frame(height: 40)
+                            .opacity(0.05)
+                    }
+            }
+            
         }
+        .frame(height: 40)
     }
     
     private var btns: some View {
@@ -262,6 +318,6 @@ extension GoalRowView {
 }
 
 //#Preview {
-//    GoalRowView()
+//    GoalRowView(vm: AddAndEditViewModel(coreDataManager: CoreDataManager(), goal: nil), selectedGoal: .constant(nil))
 //        .padding()
 //}

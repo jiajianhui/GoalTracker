@@ -30,9 +30,6 @@
     "%lld" : {
 
     },
-    "%lld%%" : {
-
-    },
     "%lld日" : {
 
     },
@@ -40,6 +37,9 @@
 
     },
     "©" : {
+
+    },
+    "1" : {
 
     },
     "1. App 功能" : {
@@ -485,6 +485,7 @@
       }
     },
     "当前进度" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -698,6 +699,9 @@
         }
       }
     },
+    "目标单位" : {
+
+    },
     "确定要删除吗？此操作无法撤销" : {
       "localizations" : {
         "en" : {
@@ -770,6 +774,9 @@
         }
       }
     },
+    "设置目标" : {
+
+    },
     "设置自定义图标" : {
       "comment" : "2",
       "localizations" : {
@@ -803,6 +810,7 @@
       }
     },
     "进度" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
