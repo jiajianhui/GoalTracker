@@ -25,8 +25,10 @@ struct GoalRowView: View {
     @State private var scale: CGFloat = 1
     
     //picker
-    let pickerOptions: [String] = ["百分比", "数字"]
-    @State var pickerValue = 0
+    let pickerOptions: [String] = [
+        NSLocalizedString("百分比", comment: "picker"),
+        NSLocalizedString("数字", comment: "picker")
+    ]
     
     private let height: CGFloat = 36
     
@@ -34,7 +36,11 @@ struct GoalRowView: View {
         VStack(spacing: 20) {
             HStack {
                 titleAndDate
-                state
+                if showDetail {
+                    circleState
+                } else {
+                    textState
+                }
             }
             .onTapGesture {
                 tapAnimation()
@@ -90,13 +96,21 @@ extension GoalRowView {
             .overlay(alignment: .leading) {
                 VStack {
                     Spacer()
-                    VStack {
+                    ZStack(alignment: .leading) {
+                        //灰色条
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(.primary.opacity(0.06))
+                            .padding(4)
+                            .frame(height: 12)
+                            .opacity(showDetail ? 0 : 1)
+                        //进度条
                         if vm.goal.pickerValue == 0 {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(vm.goal.schedule == 100 ? .green : .purple)
                                 .padding(4)
                                 .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 100), height: 12)
                                 .opacity(showDetail ? 0 : 1)
+                            
                         } else {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? .green : .purple)
@@ -196,7 +210,7 @@ extension GoalRowView {
     }
     
     //目标状态
-    private var state: some View {
+    private var textState: some View {
         if vm.goal.pickerValue == 0 {
             Text(vm.goal.schedule == 100 ? "已完成" : "进行中")
                 .font(.system(size: 12, weight: .bold, design: .rounded))
@@ -216,6 +230,31 @@ extension GoalRowView {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
+        
+    }
+    
+    //圆环指示条
+    private var circleState: some View {
+        ZStack {
+            Circle()
+                .stroke(.primary.opacity(0.06), lineWidth: 5)
+            if vm.goal.pickerValue == 0 {
+                Circle()
+                    // CGFloat(num / 10) 与 CGFloat(num) / 10不一样，前者小数部分可能会丢失，后者不会
+                    .trim(from: 0.0, to: CGFloat(vm.goal.schedule) / 100)
+                    .stroke(vm.goal.schedule == 100 ? .green : .purple, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
+                    .animation(.spring, value: vm.goal.schedule)
+            } else {
+                Circle()
+                    .trim(from: 0.0, to: CGFloat(vm.goal.currentScheduleNum) / CGFloat(vm.goal.scheduleNum))
+                    .stroke(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? .green : .purple, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
+                    .animation(.spring, value: vm.goal.currentScheduleNum)
+            }
+            
+        }
+        .frame(width: 26)
         
     }
     

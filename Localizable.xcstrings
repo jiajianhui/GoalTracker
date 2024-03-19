@@ -477,7 +477,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "It has been %lld days."
+            "value" : "It has been %lld days"
           }
         }
       }
@@ -603,6 +603,17 @@
         }
       }
     },
+    "数字" : {
+      "comment" : "picker",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Num"
+          }
+        }
+      }
+    },
     "暂无已完成的目标" : {
       "localizations" : {
         "en" : {
@@ -707,8 +718,26 @@
         }
       }
     },
+    "百分比" : {
+      "comment" : "picker",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pct"
+          }
+        }
+      }
+    },
     "目标单位" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Unit"
+          }
+        }
+      }
     },
     "确定要删除吗？此操作无法撤销" : {
       "localizations" : {
@@ -783,7 +812,14 @@
       }
     },
     "设置目标" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Goal"
+          }
+        }
+      }
     },
     "设置自定义图标" : {
       "comment" : "2",
