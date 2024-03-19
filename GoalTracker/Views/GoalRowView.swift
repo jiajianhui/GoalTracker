@@ -12,7 +12,7 @@ struct GoalRowView: View {
     @ObservedObject var vm: AddAndEditViewModel
     
     //是否展示细节
-    @State var showDetail = true
+    @State var showDetail = false
     
     var screenWidth = UIScreen.main.bounds.width
     
@@ -28,6 +28,7 @@ struct GoalRowView: View {
     let pickerOptions: [String] = ["百分比", "数字"]
     @State var pickerValue = 0
     
+    private let height: CGFloat = 36
     
     var body: some View {
         VStack(spacing: 20) {
@@ -41,29 +42,14 @@ struct GoalRowView: View {
             
             if showDetail {
                 VStack(spacing: 19) {
-//                    LineView()
-//                    date
                     LineView()
-                    HStack {
-                        Text("目标单位")
-                        Spacer()
-                        Picker("1", selection: $vm.goal.pickerValue) {
-                            ForEach(pickerOptions.indices, id: \.self) { index in
-                                Text(pickerOptions[index])
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .frame(width: 140)
-                    }
+                    units
                     LineView()
-                    gauge
+                    setGoalValue
                     LineView()
-                    if vm.goal.pickerValue == 0 {
-                        Stepper("更新进度", value: $vm.goal.schedule, in: 0...10, step: 1)
-                    } else {
-                        Stepper("更新进度", value: $vm.goal.scheduleNum, in: 0...vm.goal.scheduleNum, step: 1)
-                    }
-                    
+                    currentState
+                    LineView()
+                    updateSchedule
                     LineView()
                     btns
                 }
@@ -96,7 +82,7 @@ struct GoalRowView: View {
 //MARK: - 视图组件
 extension GoalRowView {
     
-    //卡片背景
+    //卡片背景、进度条
     private var bgStyle: some View {
         RoundedRectangle(cornerRadius: 20)
             .foregroundStyle(Color("cardBgColor"))
@@ -104,11 +90,22 @@ extension GoalRowView {
             .overlay(alignment: .leading) {
                 VStack {
                     Spacer()
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(vm.goal.schedule == 10 ? .green : .purple)
-                        .padding(4)
-                        .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 10), height: 12)
-                        .opacity(showDetail ? 0 : 1)
+                    VStack {
+                        if vm.goal.pickerValue == 0 {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(vm.goal.schedule == 100 ? .green : .purple)
+                                .padding(4)
+                                .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 100), height: 12)
+                                .opacity(showDetail ? 0 : 1)
+                        } else {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? .green : .purple)
+                                .padding(4)
+                                .frame(width: (screenWidth - 72) * (Double(vm.goal.currentScheduleNum) / Double(vm.goal.scheduleNum)), height: 12)
+                                .opacity(showDetail ? 0 : 1)
+                        }
+                    }
+                    
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 6)
@@ -142,31 +139,54 @@ extension GoalRowView {
         }
     }
     
-    //目标标题、时间
+    //目标标题、提示文案
     private var titleAndDate: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(vm.goal.title)
                 .font(.title2)
                 .fontWeight(.bold)
                 .lineLimit(showDetail ? 100 : 1)
-            Group {
-                if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule != 10 {  //检查两个日期是否是同一天
-                    Text("今天创建")
-                } else if !Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 10 {
-                    Text("完成啦🎉")
-                } else if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 10 {
-                    Text("太高效了吧，1天就完成了😎")
-                } else {
-                    //计算目标时间与当前日期之间的天数差异（使用了 [.day] 作为第一个参数，表示只关心日期差异的天数），from 参数表示起始日期，而 to 参数表示结束日期。
-                    if (Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) == 0 {
-                        Text("快过去1天啦")
+            
+            if vm.goal.pickerValue == 0 {
+                Group {
+                    if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule != 10 {  //检查两个日期是否是同一天
+                        Text("今天创建")
+                    } else if !Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 100 {
+                        Text("完成啦🎉")
+                    } else if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.schedule == 100 {
+                        Text("太高效了吧，1天就完成了😎")
                     } else {
-                        Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                        //计算目标时间与当前日期之间的天数差异（使用了 [.day] 作为第一个参数，表示只关心日期差异的天数），from 参数表示起始日期，而 to 参数表示结束日期。
+                        if (Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) == 0 {
+                            Text("快过去1天啦")
+                        } else {
+                            Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                        }
+                        
                     }
-                    
                 }
+                .font(.system(size: 12, weight: .medium, design: .rounded))
+            } else {
+                Group {
+                    if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.currentScheduleNum != vm.goal.scheduleNum {  //检查两个日期是否是同一天
+                        Text("今天创建")
+                    } else if !Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.currentScheduleNum == vm.goal.scheduleNum {
+                        Text("完成啦🎉")
+                    } else if Calendar.current.isDate(vm.goal.date, inSameDayAs: Date()) && vm.goal.currentScheduleNum == vm.goal.scheduleNum {
+                        Text("太高效了吧，1天就完成了😎")
+                    } else {
+                        //计算目标时间与当前日期之间的天数差异（使用了 [.day] 作为第一个参数，表示只关心日期差异的天数），from 参数表示起始日期，而 to 参数表示结束日期。
+                        if (Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) == 0 {
+                            Text("快过去1天啦")
+                        } else {
+                            Text("已过去 \(Calendar.current.dateComponents([.day], from: vm.goal.date, to: Date()).day ?? 0) 天 ")
+                        }
+                        
+                    }
+                }
+                .font(.system(size: 12, weight: .medium, design: .rounded))
             }
-            .font(.system(size: 12, weight: .medium, design: .rounded))
+            
             
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -177,14 +197,26 @@ extension GoalRowView {
     
     //目标状态
     private var state: some View {
-        Text(vm.goal.schedule == 10 ? "已完成" : "进行中")
-            .font(.system(size: 12, weight: .bold, design: .rounded))
-            .foregroundStyle(vm.goal.schedule == 10 ? .green : .purple)
-            .padding(10)
-            .background {
-                vm.goal.schedule == 10 ? Color.green.opacity(0.08) : Color.purple.opacity(0.08)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+        if vm.goal.pickerValue == 0 {
+            Text(vm.goal.schedule == 100 ? "已完成" : "进行中")
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(vm.goal.schedule == 100 ? .green : .purple)
+                .padding(10)
+                .background {
+                    vm.goal.schedule == 100 ? Color.green.opacity(0.08) : Color.purple.opacity(0.08)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        } else {
+            Text(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? "已完成" : "进行中")
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? .green : .purple)
+                .padding(10)
+                .background {
+                    vm.goal.currentScheduleNum == vm.goal.scheduleNum ? Color.green.opacity(0.08) : Color.purple.opacity(0.08)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+        
     }
     
     //MARK: - 详情部分
@@ -196,59 +228,88 @@ extension GoalRowView {
         }
     }
     
-    private var gauge: some View {
+    //目标单位
+    private var units: some View {
+        HStack {
+            Text("目标单位")
+            Spacer()
+            Picker("1", selection: $vm.goal.pickerValue) {
+                ForEach(pickerOptions.indices, id: \.self) { index in
+                    Text(pickerOptions[index])
+                }
+            }
+            .pickerStyle(.segmented)
+            .frame(width: 140)
+        }
+        .frame(height: height)
+    }
+    
+    
+    //设置目标
+    private var setGoalValue: some View {
         HStack {
             if vm.goal.pickerValue == 0 {
-//                Text("当前进度")
-//                Spacer()
-//                Gauge(
-//                    value: Double(vm.goal.schedule) / 10,  //将schedule转为小数，以供Gauge使用——计算属性
-//                    label: {
-//                        Text("进度")
-//                    },
-//                    currentValueLabel: {
-//                        Text("\(vm.goal.schedule * 10)%") //将schedule转为百分比——计算属性
-//                            .font(.system(size: 16, weight: .medium))
-//                    }
-//                )
-//                .gaugeStyle(.accessoryCircularCapacity)
-//                .tint(.purple)
+                
                 Text("设置目标")
                 Spacer()
-                TextField("", text: .constant("100%"))
-                    .disabled(true)
-                    .opacity(0.6)
-                    .padding(.horizontal, 10)
-                    .frame(width: 90)
-                    .background {
-                        RoundedRectangle(cornerRadius: 12)
-                            .frame(height: 40)
-                            .opacity(0.05)
-                    }
+                Text("100%")
+                
             } else {
                 Text("设置目标")
                 Spacer()
-                TextField("", text: Binding(
-                    get: {
-                    "\(vm.goal.scheduleNum)"
-                    }, set: { newValue in
-                        if let intValue = Int(newValue) {
-                            vm.goal.scheduleNum = intValue
-                        }
-                    }))
-                    .padding(.horizontal, 10)
-                    .frame(width: 90)
-                    .background {
-                        RoundedRectangle(cornerRadius: 12)
-                            .frame(height: 40)
-                            .opacity(0.05)
+                
+                Picker("picker", selection: $vm.goal.scheduleNum) {
+                    ForEach(0..<200) { index in
+                        Text("\(index)")
                     }
+                }
+            }
+        }
+        .frame(height: height)
+        
+    }
+    
+    //当前进度
+    private var currentState: some View {
+        HStack {
+            Text("当前进度")
+            Spacer()
+            
+            if vm.goal.pickerValue == 0 {
+                Text("\(vm.goal.schedule)%")
+            } else {
+                VStack {
+                    Text("\(vm.goal.currentScheduleNum)")
+                }
+                .padding(.trailing, 16)
+                .onChange(of: vm.goal.scheduleNum) { newValue in
+                    if newValue <= vm.goal.currentScheduleNum {
+                        vm.goal.currentScheduleNum = newValue
+                        vm.save()
+                    }
+                }
             }
             
         }
-        .frame(height: 40)
+        .frame(height: height)
     }
     
+    //更新进度
+    private var updateSchedule: some View {
+        HStack {
+            if vm.goal.pickerValue == 0 {
+                Stepper("更新进度", value: $vm.goal.schedule, in: 0...100, step: 1)
+            } else {
+                Stepper("更新进度", value: $vm.goal.currentScheduleNum, in: 0...vm.goal.scheduleNum, step: 1)
+                    .onChange(of: vm.goal.currentScheduleNum) { newValue in
+                        vm.goal.currentScheduleNum = newValue
+                    }
+            }
+        }
+        .frame(height: height)
+    }
+    
+    //按钮组
     private var btns: some View {
         HStack {
             

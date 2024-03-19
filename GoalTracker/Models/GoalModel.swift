@@ -15,6 +15,7 @@ class GoalModel: NSManagedObject, Identifiable {
     @NSManaged var date: Date
     @NSManaged var pickerValue: Int
     @NSManaged var scheduleNum: Int
+    @NSManaged var currentScheduleNum: Int
     
     //添加默认值
     override func awakeFromInsert() {
@@ -24,6 +25,7 @@ class GoalModel: NSManagedObject, Identifiable {
         setPrimitiveValue(0, forKey: "schedule")
         setPrimitiveValue(0, forKey: "pickerValue")
         setPrimitiveValue(10, forKey: "scheduleNum")
+        setPrimitiveValue(0, forKey: "currentScheduleNum")
     }
     
     //空Goal
