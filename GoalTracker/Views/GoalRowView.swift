@@ -108,14 +108,20 @@ extension GoalRowView {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(vm.goal.schedule == 100 ? .green : .purple)
                                 .padding(4)
-                                .frame(width: (screenWidth - 72) * (Double(vm.goal.schedule) / 100), height: 12)
+                                .frame(
+                                    width: (screenWidth - 72) * (Double(vm.goal.schedule) / 100),
+                                    height: 12
+                                )
                                 .opacity(showDetail ? 0 : 1)
                             
                         } else {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(vm.goal.currentScheduleNum == vm.goal.scheduleNum ? .green : .purple)
                                 .padding(4)
-                                .frame(width: (screenWidth - 72) * (Double(vm.goal.currentScheduleNum) / Double(vm.goal.scheduleNum)), height: 12)
+                                .frame(
+                                    width: vm.goal.scheduleNum != 0 ? (screenWidth - 72) * (Double(vm.goal.currentScheduleNum) / Double(vm.goal.scheduleNum)) : screenWidth - 72,
+                                    height: 12
+                                )
                                 .opacity(showDetail ? 0 : 1)
                         }
                     }
@@ -287,16 +293,13 @@ extension GoalRowView {
     //设置目标
     private var setGoalValue: some View {
         HStack {
+            Text("设置目标")
+            Spacer()
             if vm.goal.pickerValue == 0 {
-                
-                Text("设置目标")
-                Spacer()
                 Text("100%")
+                    .opacity(0.5)
                 
             } else {
-                Text("设置目标")
-                Spacer()
-                
                 Picker("picker", selection: $vm.goal.scheduleNum) {
                     ForEach(0..<200) { index in
                         Text("\(index)")

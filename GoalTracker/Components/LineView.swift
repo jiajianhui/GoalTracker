@@ -10,7 +10,7 @@ import SwiftUI
 struct LineView: View {
     var body: some View {
         Rectangle()
-            .fill(Color(uiColor: .systemGray5).opacity(0.6))
+            .fill(Color("LineColor"))
             .frame(height: 1)
     }
 }
